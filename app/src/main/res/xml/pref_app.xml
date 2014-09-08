@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:droibit="http://schemas.android.com/apk/com.droibit.evendroid" >
+
+    <PreferenceCategory android:title="@string/pref_about_app_category" >
+        <Preference
+            android:key="@string/pref_key_build_version"
+            android:title="@string/pref_about_app_build_version_title" />
+        <com.droibit.preference.ChangeLogDialogPreference
+            android:key="@string/pref_key_change_log"
+            android:summary="@string/pref_about_app_change_log_summary"
+            android:title="@string/pref_about_app_change_log_title"
+            droibit:changelog="@xml/changelog" />
+        <com.droibit.preference.OSSLicenseDialogPreference
+            android:key="@string/pref_key_open_souce_license"
+            android:summary="@string/pref_about_app_open_souce_license_summary"
+            android:title="@string/pref_about_app_open_souce_license_title" />
+        <Preference
+            android:key="@string/pref_key_share_app"
+            android:title="@string/pref_about_app_share_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

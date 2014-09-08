@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Light Blue-->
+    <color name="theme_default_primary">#03a9f4</color>
+    <color name="theme_default_primary_dark">#0277bd</color>
+    <color name="theme_default_text_primary">#FFFFFF</color>
+    <color name="default_secondary_text">#646464</color>
+
+</resources>

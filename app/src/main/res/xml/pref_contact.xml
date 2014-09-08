@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- アプリの問い合わせ -->
+    <PreferenceCategory android:title="@string/pref_category_contact_apps" >
+        <Preference
+            android:key="@string/pref_key_request_apps"
+            android:title="@string/pref_contact_apps_title" />
+    </PreferenceCategory>
+    <!-- SNS -->
+    <PreferenceCategory android:title="@string/pref_category_contact_sns" >
+        <Preference
+            android:key="@string/pref_key_contact_twitter"
+            android:summary="@string/pref_contact_sns_summary_twitter"
+            android:title="@string/pref_contact_sns_title_twitter" />
+        <Preference
+            android:key="@string/pref_key_contact_github"
+            android:summary="@string/pref_contact_sns_summary_github"
+            android:title="@string/pref_contact_sns_title_github" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

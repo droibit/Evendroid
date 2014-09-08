@@ -1,0 +1,1 @@
+include ':app', ':Droibit4a', ':EventServiceClient4a'

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="1.2" versioncode="3" date="2014-09-15">
+        <change>イベント検索の不具合を修正</change>
+        <change>UIの刷新</change>
+        <change>主催者のイベントを閲覧できるようにしました</change>
+    </release>
+     <release version="1.1" versioncode="2" date="2013-06-16">
+     	<change>イベント検索の不具合を修正</change>
+     	<change>お気に入りの内部処理の変更</change>
+    </release>    
+    <release version="1.0" versioncode="1" date="2013-05-12">
+        <change>New release</change>
+    </release>    
+</changelog>

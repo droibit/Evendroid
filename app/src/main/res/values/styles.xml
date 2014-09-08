@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="DefaultAppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/DefaultActionBar</item>
+        <item name="android:actionBarWidgetTheme">@style/ActionBarWidget</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionBarOverFlowButton</item>
+        <item name="android:actionMenuTextColor">@color/theme_default_text_primary</item>
+    </style>
+
+    <!-- Disable theme. -->
+
+    <!-- ActionBar Style -->
+    <style name="DefaultActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/theme_default_primary</item>
+        <item name="android:titleTextStyle">@style/ActionBarTitleText</item>
+    </style>
+    <!-- ActionBar title text -->
+    <style name="ActionBarTitleText"
+        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/theme_default_text_primary</item>
+    </style>
+    <!-- ActionBar Overflow -->
+    <style name="ActionBarOverFlowButton" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_overflow</item>
+    </style>
+    <!-- ActionBar Widget -->
+    <style name="ActionBarWidget" parent="android:Theme.Holo">
+        <item name="android:popupMenuStyle">@android:style/Widget.Holo.Light.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@android:style/Widget.Holo.Light.ListView.DropDown</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/white</item>
+    </style>
+</resources>

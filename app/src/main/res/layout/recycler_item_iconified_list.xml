@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/material_list_item_height"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_available"
+            android:layout_width="@dimen/material_list_icon_size"
+            android:layout_height="@dimen/material_list_icon_size"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/material_half_side_edge"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_toRightOf="@id/image_available"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/material_side_edge"
+            android:layout_marginRight="@dimen/material_half_side_edge"
+            android:textSize="@dimen/material_textsize_medium"
+            android:singleLine="true"
+            android:ellipsize="end" />
+        <TextView
+            android:id="@+id/text_address"
+            android:layout_width="180dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="@dimen/material_side_edge"
+            android:layout_marginRight="@dimen/material_half_side_edge"
+            android:layout_toRightOf="@id/image_available"
+            android:layout_centerVertical="true"
+            android:layout_alignBottom="@id/text_title"
+            android:textSize="@dimen/material_textsize_xsmall"
+            android:textColor="@color/default_secondary_text"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="@string/app_name" />
+        <TextView
+            android:id="@+id/text_startat"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:ellipsize="marquee"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_alignBottom="@id/text_title"
+            android:layout_marginRight="@dimen/material_side_edge"
+            android:textSize="@dimen/material_textsize_xsmall"
+            android:textColor="@color/default_secondary_text"
+            android:singleLine="true" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

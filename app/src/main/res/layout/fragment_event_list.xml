@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/recycler_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/material_list_header_height"
+        android:gravity="center_vertical|left"
+        android:text="@string/event_search_list_header"
+        android:textSize="@dimen/material_textsize_medium"
+        android:layout_marginLeft="@dimen/material_side_edge"
+        android:layout_marginRight="@dimen/material_side_edge"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/material_half_side_edge"
+        android:layout_marginRight="@dimen/material_half_side_edge"
+        android:layout_marginBottom="@dimen/material_half_side_edge"/>
+</LinearLayout>

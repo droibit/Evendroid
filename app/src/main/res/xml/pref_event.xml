@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 全般 -->
+    <PreferenceCategory android:title="@string/pref_category_event_general" >
+        <ListPreference
+            android:key="@string/pref_key_laoding_count"
+            android:title="@string/pref_general_loading_title"
+            android:entries="@array/pref_event_loading_count_titile_with_value"
+            android:entryValues="@array/pref_event_loading_count_titile_with_value"
+            android:defaultValue="15"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null" />
+
+        <com.droibit.preference.AskDialogPreference
+            android:dialogMessage="@string/pref_general_clear_bookmark_dialog_msg"
+            android:dialogTitle="@string/pref_general_clear_bookmark_dialog_title"
+            android:key="@string/pref_key_clear_bookmark"
+            android:summary="@string/pref_general_clear_bookmark_summary"
+            android:title="@string/pref_general_clear_bookmark_title" />
+    </PreferenceCategory>
+
+    <!-- ATND -->
+    <PreferenceCategory android:title="@string/pref_category_event_atnd" >
+        <EditTextPreference
+            android:dialogMessage="@string/pref_atnd_dialog_msg"
+            android:dialogTitle="@string/pref_atnd_dialog_title"
+            android:key="@string/pref_key_atnd_user_name"
+            android:title="@string/pref_atnd_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

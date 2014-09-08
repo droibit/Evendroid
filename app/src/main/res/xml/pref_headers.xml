@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- イベント -->
+    <header
+        android:fragment="com.droibit.evendroid2.fragment.pref.PrefEventFragment"
+        android:title="@string/pref_header_event" />
+    <!-- コンタクト -->
+    <header
+        android:fragment="com.droibit.evendroid2.fragment.pref.PrefContactFragment"
+        android:title="@string/pref_header_contact" />
+    <!-- アプリについて -->
+    <header
+        android:fragment="com.droibit.evendroid2.fragment.pref.PrefAppFragment"
+        android:title="@string/pref_header_about_app" />
+
+</preference-headers>
