@@ -1,4 +1,4 @@
-package com.droibit.evendroid2.view.input;
+package com.droibit.evendroid2.view;
 
 /**
  * イベントの詳細項目がクリックされた時に呼ばれるイベントリスナー。

@@ -13,14 +13,14 @@ import android.widget.TextView;
 
 import com.droibit.app.fragment.LoadableFragment;
 import com.droibit.app.fragment.dialog.DialogFramgentInfo;
-import com.droibit.app.fragment.dialog.YesNoDialogFragment;
+import com.droibit.app.fragment.dialog.OkCancelDialogFragment;
 import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.contoller.BookmarkableViewAdapter;
-import com.droibit.evendroid2.view.input.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnListItemClickListener;
 import com.droibit.utils.Debug;
 
 import org.jdeferred.DoneCallback;
@@ -41,7 +41,7 @@ import static com.droibit.evendroid2.fragment.LoadableListFragment.CallBacks;
  * @since 2014/09/03.
  */
 public class BookmarkListFragment extends LoadableFragment
-        implements OnListItemClickListener, YesNoDialogFragment.OnClickYesNoListener {
+        implements OnListItemClickListener, OkCancelDialogFragment.OnDialogAskListener {
 
     private RecyclerView mRecyclerView;
     private TextView mHeaderView;
@@ -115,6 +115,20 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+
+
+    /** {@inheritDoc} */
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.global, menu);
     }
@@ -138,13 +152,13 @@ public class BookmarkListFragment extends LoadableFragment
 
         final DialogFramgentInfo info = new DialogFramgentInfo(R.string.dialog_titile_remove_bookmark_event,
                                                                R.string.dialog_content_remove_bookmark_event);
-        final YesNoDialogFragment f = YesNoDialogFragment.newInstance(info);
+        final OkCancelDialogFragment f = OkCancelDialogFragment.newInstance(info);
         f.show(this);
     }
 
     /** {@inheritDoc} */
     @Override
-    public void onClickYes() {
+    public void onClickOk() {
         final BookmarkableEvent bookmark = (BookmarkableEvent) mSelectedBookmark;
         bookmark.delete();
         mAdapter.remove(mSelectedBookmark);
@@ -155,7 +169,7 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
-    public void onClickNo() {
+    public void onClickCancel() {
         mSelectedBookmark = null;
     }
 

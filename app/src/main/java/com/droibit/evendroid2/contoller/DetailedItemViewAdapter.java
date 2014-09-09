@@ -1,12 +1,9 @@
 package com.droibit.evendroid2.contoller;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,7 +12,6 @@ import android.view.ViewGroup.LayoutParams;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedEvent.Item;
-import com.droibit.evendroid2.view.DetailedItemView;
 
 import java.util.ArrayList;
 import java.util.List;

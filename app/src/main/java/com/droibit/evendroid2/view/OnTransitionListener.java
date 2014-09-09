@@ -1,4 +1,4 @@
-package com.droibit.evendroid2.view.input;
+package com.droibit.evendroid2.view;
 
 /**
  * 詳細項目をクリック後、画面遷移する際に呼ばれるイベントリスナー。

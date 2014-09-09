@@ -18,16 +18,13 @@ import com.droibit.evendroid2.model.DetailMenuAction;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedGroupBuilder;
 import com.droibit.evendroid2.model.RefreshAction;
-import com.droibit.evendroid2.view.input.OnTransitionListener;
+import com.droibit.evendroid2.view.OnTransitionListener;
 import com.droibit.eventservice.EventServiceClient;
 import com.droibit.eventservice.events.atnd.EventResponse;
 import com.droibit.eventservice.http.url.EventParameters;
 import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * イベントの詳細情報を表示するためのフラグメント。

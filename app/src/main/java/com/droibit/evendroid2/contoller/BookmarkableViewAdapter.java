@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.IListableEvent;
-import com.droibit.evendroid2.view.input.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnListItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

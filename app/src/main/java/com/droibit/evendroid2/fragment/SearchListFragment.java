@@ -112,6 +112,12 @@ public class SearchListFragment extends LoadableListFragment
 
     /** {@inheritDoc} */
     @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -130,6 +136,12 @@ public class SearchListFragment extends LoadableListFragment
         mSearchMenuItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) mSearchMenuItem.getActionView();
         mSearchAction.setSearchView(searchView, mSearchMenuItem);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     /** {@inheritDoc} */

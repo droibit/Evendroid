@@ -25,6 +25,8 @@ public class DetailActivity extends Activity implements LoadableListFragment.Cal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity using a
             // fragment transaction.
@@ -47,6 +49,9 @@ public class DetailActivity extends Activity implements LoadableListFragment.Cal
         final int id = item.getItemId();
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        } else if (id == android.R.id.home) {
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
