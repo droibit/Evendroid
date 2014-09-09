@@ -6,9 +6,10 @@
         <ListPreference
             android:key="@string/pref_key_laoding_count"
             android:title="@string/pref_general_loading_title"
+            android:dialogTitle="@string/pref_general_loading_dialog_title"
             android:entries="@array/pref_event_loading_count_titile_with_value"
             android:entryValues="@array/pref_event_loading_count_titile_with_value"
-            android:defaultValue="15"
+            android:defaultValue="20"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null" />
 
@@ -26,7 +27,9 @@
             android:dialogMessage="@string/pref_atnd_dialog_msg"
             android:dialogTitle="@string/pref_atnd_dialog_title"
             android:key="@string/pref_key_atnd_user_name"
-            android:title="@string/pref_atnd_title" />
+            android:title="@string/pref_atnd_title"
+            android:maxLines="1"
+            android:maxLength="25"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

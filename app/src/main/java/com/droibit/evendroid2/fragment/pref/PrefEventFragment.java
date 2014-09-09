@@ -1,6 +1,8 @@
 package com.droibit.evendroid2.fragment.pref;
 
 import android.os.Bundle;
+import android.preference.EditTextPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
@@ -11,6 +13,7 @@ import com.droibit.evendroid2.SettingsActivity;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.preference.AskDialogPreference;
 import com.droibit.preference.OnDialogPreferenceClickListener;
+import com.droibit.text.Strings;
 
 /**
  * イベント支援サイト毎の設定するフラグメント
@@ -64,16 +67,25 @@ public class PrefEventFragment extends PreferenceFragment implements
 	/** {@inheritDoc} */
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
-		final String inputedValue = newValue.toString();
 		if (preference == mPrefsUserName) {
+            final String inputedValue = newValue.toString();
 			if (!TextUtils.isEmpty(inputedValue)) {
 				preference.setSummary(getString(R.string.pref_atnd_summary,
 						inputedValue));
 				return true;
 			}
+            // 空文字が入力された場合はユーザ名をクリアする。
+            ((EditTextPreference) preference).setText(Strings.EMPTY);
 			preference.setSummary("---");
 			return false;
-		}
+		} else if (preference == mPrefLoadCount) {
+            preference.setSummary(getString(
+                    R.string.pref_general_loading_summary,
+                    newValue.toString()));
+            // 設定にロード数を保存する。
+            ((ListPreference) preference).setValue(newValue.toString());
+            return true;
+        }
 		return false;
 	}
 

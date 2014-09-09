@@ -54,7 +54,7 @@
 
     <!-- イベント -->
     <string name="event_detail_no_participants">No participants</string>
-    <string name="event_detail_participants">%1$d/%2$d</string>
+    <string name="event_detail_participants">%1$d / %2$d</string>
     <string name="event_detail_section_summary">Summary</string>
     <string name="event_detail_section_users">Participants</string>
     <string name="event_detail_section_owner">Owner</string>
@@ -90,7 +90,6 @@
     <string name="pref_about_app_change_log_title">What\'s new</string>
     <string name="pref_about_app_change_log_summary">Changes to the Application</string>
     <string name="pref_about_app_open_souce_license_title">Open source license</string>
-    <string name="pref_about_app_open_souce_license_summary">License details of open source software</string>
     <string name="pref_about_app_share_title">Share the application</string>
     <!-- プレファレンスキー -->
     <string name="pref_key_laoding_count">laodingCount</string>

@@ -8,12 +8,10 @@
             android:title="@string/pref_about_app_build_version_title" />
         <com.droibit.preference.ChangeLogDialogPreference
             android:key="@string/pref_key_change_log"
-            android:summary="@string/pref_about_app_change_log_summary"
             android:title="@string/pref_about_app_change_log_title"
             droibit:changelog="@xml/changelog" />
         <com.droibit.preference.OSSLicenseDialogPreference
             android:key="@string/pref_key_open_souce_license"
-            android:summary="@string/pref_about_app_open_souce_license_summary"
             android:title="@string/pref_about_app_open_souce_license_title" />
         <Preference
             android:key="@string/pref_key_share_app"
