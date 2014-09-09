@@ -3,6 +3,7 @@ package com.droibit.evendroid2.view;
 import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -31,10 +32,13 @@ public class DetailedItemView extends RelativeLayout {
     public DetailedItemView(Context context) {
         super(context);
 
-        inflate(context, R.layout.list_item_detail, this);
+        //inflate(context, R.layout.list_item_detail, this);
+        LayoutInflater.from(context).inflate(R.layout.list_item_detail, this);
 
         mIconView = (ImageView) findViewById(R.id.image_icon);
         mTitleView = (TextView) findViewById(R.id.text_title);
+
+
     }
 
     /**
