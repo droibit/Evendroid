@@ -26,6 +26,9 @@ import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * イベントの詳細情報を表示するためのフラグメント。
  *
@@ -37,6 +40,7 @@ public class DetailEventFragment extends LoadableFragment
 
     private static final String KEY_EVENT_ID = "event_id";
     private static final String KEY_SHOW_OWNER_EVENTS = "show_owner_events";
+    private static final String KEY_GROPUED_EVENT_ITEMS = "grouped_event_items";
 
     private EventServiceClient mClient;
     private RecyclerView mRecyclerView;
@@ -127,8 +131,6 @@ public class DetailEventFragment extends LoadableFragment
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
-
-        //mContainerView = (LinearLayout) view.findViewById(R.id.container);
     }
 
     /** {@inheritDoc} */
@@ -153,6 +155,14 @@ public class DetailEventFragment extends LoadableFragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return mAction.onOptionsItemSelected(item);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        mClient.stop();
     }
 
     /** {@inheritDoc} */

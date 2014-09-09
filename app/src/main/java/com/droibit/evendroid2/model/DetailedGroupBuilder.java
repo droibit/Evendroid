@@ -123,14 +123,15 @@ public final class DetailedGroupBuilder {
         }
 
         // 関連ページ
-        final Item url = new Item(event.getUrl(), R.drawable.ic_globe);
-        url.setListener(new OnDetailedItemClickListener() {
-            public void onClick() {
-                // "---"の場合は起動メソッド内で弾いている。
-                IntentHepler.launchBrowser(context, event.getUrl());
-            }
-        });
-        ownerGroup.add(url);
+        if (event.getUrl().indexOf("://") != -1) {
+            final Item url = new Item(event.getUrl(), R.drawable.ic_globe);
+            url.setListener(new OnDetailedItemClickListener() {
+                public void onClick() {
+                    IntentHepler.launchBrowser(context, event.getUrl());
+                }
+            });
+            ownerGroup.add(url);
+        }
 
         return new Group[] {summaryGroup, usersGroup, ownerGroup};
     }

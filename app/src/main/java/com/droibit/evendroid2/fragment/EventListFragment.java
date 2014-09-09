@@ -49,10 +49,12 @@ public class EventListFragment extends LoadableListFragment
         @Override
         public void onErrorResponse(VolleyError volleyError) {
             Debug.log(volleyError.getLocalizedMessage());
+            mAction.onPostRefresh();
+
             // エラーが発生した場合はコンテンツを非表示にする
             mAdapter.clear();
+            mAdapter.notifyDataSetChanged();
             setContentShown(true);
-            mAction.onPostRefresh();
             // エラーメッセージを表示する。
             ToastManager.showShort(getActivity(), R.string.toast_failed_to_search_event);
         }
@@ -61,10 +63,11 @@ public class EventListFragment extends LoadableListFragment
         @Override
         public void onResponse(EventResponse listableEventResponse) {
             mAction.onPostRefresh();
-            mAdapter.getEvents().clear();
+            mAdapter.clear();
 
             // レスポンスにイベント情報が存在しない場合
             if (!listableEventResponse.existsEvent()) {
+                mAdapter.notifyDataSetChanged();
                 setListHeaderContent(0);
                 setContentShown(true);
                 return;
@@ -127,7 +130,7 @@ public class EventListFragment extends LoadableListFragment
         super.onCreate(savedInstanceState);
 
         mEventType = getArguments().getInt(KEY_EVENT_TYPE);
-        mAction = new RefreshAction(mClient, mResponseCallback);
+        mAction = new RefreshAction(getActivity(), mClient, mResponseCallback);
         mAction.setListener(this);
 
         // 主催/参加イベントを切り替えて検索する。

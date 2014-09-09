@@ -82,6 +82,14 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(true);
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 

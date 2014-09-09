@@ -97,6 +97,9 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
     public void onDetach() {
         super.onDetach();
         mCallbacks = null;
+
+        // フラグメントがリプレイスされた場合にリクエストを止めるようにする。
+        mClient.stop();
     }
 
     /** {@inheritDoc} */
@@ -108,7 +111,7 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
     /** {@inheritDoc} */
     @Override
     public void onItemLongClick(IListableEvent event) {
-        ToastManager.showShort(getActivity(), event.getTitle());
+        ToastManager.showLong(getActivity(), event.getTitle());
     }
 
     /**

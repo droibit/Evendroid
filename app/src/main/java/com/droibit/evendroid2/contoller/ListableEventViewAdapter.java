@@ -89,6 +89,15 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
         mEvents.add(item);
     }
 
+    /**
+     * 新しいイベント情報群を追加する。
+     *
+     * @param items 新しいイベント情報群
+     */
+    public void addAll(@NonNull List<ListableEvent> items) {
+        mEvents.addAll(items);
+    }
+
 
     /**
      * イベント情報を全て削除する。

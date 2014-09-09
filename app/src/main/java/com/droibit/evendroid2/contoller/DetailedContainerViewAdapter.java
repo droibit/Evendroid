@@ -60,20 +60,48 @@ public class DetailedContainerViewAdapter extends RecyclerView.Adapter<DetailedC
     }
 
     /**
-     * 情報を全て削除する。
+     * 詳細項目のグルーピングリストを取得する。
+     *
+     * @return グルーピングしたリスト
+     */
+    public List<DetailedEvent.Group> getGroups() {
+        return mGroups;
+    }
+
+    /**
+     * 表示するを全て削除する。
      */
     public void clear() {
         mGroups.clear();
     }
 
     /**
-     * リストに表示する項目を全て追加する。
+     * 表示する項目を全て追加する。
      *
      * @param groups 表示する項目
      */
     public void addAll(DetailedEvent.Group[] groups) {
         mGroups.addAll(Arrays.asList(groups));
         notifyDataSetChanged();
+    }
+
+    /**
+     * 表示する項目を全て追加する。
+     *
+     * @param groups 表示する項目
+     */
+    public void addAll(List<DetailedEvent.Group> groups) {
+        mGroups.addAll(groups);
+        notifyDataSetChanged();
+    }
+
+    /**
+     * 表示する項目が存在しているかどうか
+     *
+     * @return trueの場合存在し、falseの場合存在しない
+     */
+    public boolean isEmpty() {
+        return mGroups.isEmpty();
     }
 
     /**

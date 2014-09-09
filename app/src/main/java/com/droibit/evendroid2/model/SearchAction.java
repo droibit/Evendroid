@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 
 import com.droibit.evendroid2.R;
+import com.droibit.evendroid2.SettingsActivity;
 import com.droibit.eventservice.IEventServiceClient;
 import com.droibit.eventservice.events.EventServices;
 import com.droibit.eventservice.events.atnd.EventResponse;
@@ -161,7 +162,8 @@ public class SearchAction implements SearchView.OnQueryTextListener,
 
         final GetRequest.Builder builder = new GetRequest.Builder()
                 .append(EventServices.ATND, RequestContents.EVENT)
-                .append(EventParameters.KEYWORD, keyword);
+                .append(EventParameters.KEYWORD, keyword)
+                .append(EventParameters.COUNT, String.valueOf(SettingsActivity.getLoadCount(mContext)));
         return EventResponse.createRequest(builder.build(), mResponseCallback);
     }
 

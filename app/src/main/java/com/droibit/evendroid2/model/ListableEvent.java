@@ -14,13 +14,15 @@ import java.util.Date;
  * @author kumagai
  * @since 2014/09/02
  */
-public class ListableEvent implements IListableEvent {
+public class ListableEvent implements IListableEvent, Comparable<ListableEvent> {
 
     private String mId;
     private String mTitle;
-    private String mStartAt;
+    private String mStartedAt;
     private String mAddress;
     private boolean mAvairable;
+
+    private Date mStartedAtDate;
 
     /**
      * コンストラクタ
@@ -31,11 +33,12 @@ public class ListableEvent implements IListableEvent {
         mId = response.eventId;
         mTitle = response.title;
         mAddress = !Strings.isEmptyOrWhitespace(response.address) ? response.address : "---";
-        mStartAt = DateFormatter.toShortDateString(response.startedAt);
+        mStartedAt = DateFormatter.toShortDateString(response.startedAt);
+        mStartedAtDate = DateFormatter.toDate(response.startedAt);
 
         final boolean isOver = new Date(System.currentTimeMillis())
                                         .compareTo(DateFormatter.toDate(response.startedAt)) == 1;
-        mAvairable = (response.accepted <= response.limit && !isOver);
+        mAvairable = (response.accepted <= response.limit || !isOver);
     }
 
     /** {@inheritDoc} */
@@ -51,7 +54,7 @@ public class ListableEvent implements IListableEvent {
     /** {@inheritDoc} */
     @Override
     public String getStartedAt() {
-        return mStartAt;
+        return mStartedAt;
     }
 
     /** {@inheritDoc} */
@@ -68,5 +71,14 @@ public class ListableEvent implements IListableEvent {
      */
     public boolean isAvairable() {
         return mAvairable;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int compareTo(ListableEvent another) {
+        if (another.mStartedAtDate == null) {
+            return -1;
+        }
+        return another.mStartedAtDate.compareTo(mStartedAtDate);
     }
 }
