@@ -28,8 +28,8 @@
     <string name="toast_not_exist_username">設定からユーザ名を入力して下さい</string>
     <string name="toast_successfull_added_bookmark">ブックマークに成功しました</string>
     <string name="toast_failed_to_add_bookmark">ブックマークに失敗しました</string>
-    <string name="toast_successfull_overwrite_bookmark">ブックマークの上書きに成功しました</string>
-    <string name="toast_failed_to_overwrite_bookmark">ブックマークの上書きに失敗しました</string>
+    <string name="toast_successfull_remove_bookmark">ブックマークの削除に成功しました</string>
+    <string name="toast_failed_to_remove_bookmark">ブックマークの上書きに失敗しました</string>
     <string name="toast_failed_to_connect_network"> インターネットの接続に失敗しました。接続してから再検索して下さい。</string>
     <string name="toast_not_exist_participant">参加者はいません</string>
 
