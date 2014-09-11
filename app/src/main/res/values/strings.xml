@@ -49,8 +49,9 @@
     <string name="dialog_titile_remove_bookmark_event">Remove bookmark</string>
     <string name="dialog_content_remove_bookmark_event">Are you sure you want to delete the event that bookmark?</string>
 
-    <!-- 検索 -->
-    <string name="search_query_hint_keyword">Keyword</string>
+    <!-- ヒント -->
+    <string name="hint_search_query_keyword">Keyword</string>
+    <string name="hint_input_account_name">ATND account name</string>
 
     <!-- イベント -->
     <string name="event_detail_no_participants">No participants</string>
@@ -73,6 +74,9 @@
     <string name="pref_general_clear_bookmark_summary">Bookmark count : %1$d</string>
     <string name="pref_general_clear_bookmark_dialog_title">Clear bookmarks</string>
     <string name="pref_general_clear_bookmark_dialog_msg">Are you sure you want to clear all bookmarks?</string>
+    <string name="pref_general_clear_suggest_title">Clear search history</string>
+    <string name="pref_general_clear_suggest_dialog_title">Clear history</string>
+    <string name="pref_general_clear_suggest_dialog_msg">Are you sure you want to clear all search history?</string>
     <string name="pref_category_event_atnd">ATND</string>
     <string name="pref_atnd_title">ATND UserName</string>
     <string name="pref_atnd_summary">%1$s</string>
@@ -92,16 +96,17 @@
     <string name="pref_about_app_open_souce_license_title">Open source license</string>
     <string name="pref_about_app_share_title">Share the application</string>
     <!-- プレファレンスキー -->
-    <string name="pref_key_laoding_count">laodingCount</string>
-    <string name="pref_key_atnd_user_name">atndUserName</string>
-    <string name="pref_key_clear_bookmark">clearBookmark</string>
-    <string name="pref_key_request_apps">requestApps</string>
-    <string name="pref_key_contact_github">contactGitHub</string>
-    <string name="pref_key_contact_twitter">contactTwitter</string>
-    <string name="pref_key_build_version">buildVersion</string>
-    <string name="pref_key_change_log">whatsNew</string>
-    <string name="pref_key_open_souce_license">openSounceLicense</string>
-    <string name="pref_key_share_app">shareApp</string>
+    <string name="pref_key_laoding_count">laoding_count</string>
+    <string name="pref_key_atnd_user_name">atndUser_name</string>
+    <string name="pref_key_clear_bookmark">clear_bookmark</string>
+    <string name="pref_key_clear_suggest">clear_suggest</string>
+    <string name="pref_key_request_apps">request_apps</string>
+    <string name="pref_key_contact_github">contact_gitHub</string>
+    <string name="pref_key_contact_twitter">contact_twitter</string>
+    <string name="pref_key_build_version">build_version</string>
+    <string name="pref_key_change_log">whats_new</string>
+    <string name="pref_key_open_souce_license">oss_license</string>
+    <string name="pref_key_share_app">share_app</string>
 
     <!-- メール -->
     <string name="mail_address">kumagai.shinya@gmail.com</string>
@@ -111,5 +116,6 @@
 
     <!-- Misc -->
     <string name="twitter_id">droibit</string>
+    <string name="startup_create_account">Create ATND account</string>
 
 </resources>

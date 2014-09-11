@@ -1,7 +1,6 @@
 package com.droibit.evendroid2.model;
 
 import android.app.Activity;
-import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
 import android.content.res.Resources;
@@ -182,8 +181,8 @@ public class SearchAction implements SearchView.OnQueryTextListener,
         // ヒント左のアイコンを変更する。
         final int searchTextId = res.getIdentifier("android:id/search_src_text", null, null);
         final AutoCompleteTextView searchText = (AutoCompleteTextView) searchPlate.findViewById(searchTextId);
-        final SpannableStringBuilder ssb = new SpannableStringBuilder("  ");
-        ssb.append(mContext.getString(R.string.search_query_hint_keyword));
+        final SpannableStringBuilder ssb = new SpannableStringBuilder("   ");
+        ssb.append(mContext.getString(R.string.hint_search_query_keyword));
         final Drawable searchIcon = res.getDrawable(R.drawable.ic_action_search_hint);
         final int textSize = (int) (searchText.getTextSize() * 1.25);
         searchIcon.setBounds(0, 0, textSize, textSize);

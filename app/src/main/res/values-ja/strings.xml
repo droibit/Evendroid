@@ -26,10 +26,10 @@
     <string name="toast_failed_to_fetch_event">イベントの読み込みに失敗しました</string>
     <string name="toast_not_exist_events">更新するイベントがありません</string>
     <string name="toast_not_exist_username">設定からユーザ名を入力して下さい</string>
-    <string name="toast_successfull_added_bookmark">ブックマークに成功しました</string>
+    <string name="toast_successfull_added_bookmark">ブックマークしました</string>
     <string name="toast_failed_to_add_bookmark">ブックマークに失敗しました</string>
-    <string name="toast_successfull_remove_bookmark">ブックマークの削除に成功しました</string>
-    <string name="toast_failed_to_remove_bookmark">ブックマークの上書きに失敗しました</string>
+    <string name="toast_successfull_remove_bookmark">ブックマークを削除しました</string>
+    <string name="toast_failed_to_remove_bookmark">ブックマークの削除に失敗しました</string>
     <string name="toast_failed_to_connect_network"> インターネットの接続に失敗しました。接続してから再検索して下さい。</string>
     <string name="toast_not_exist_participant">参加者はいません</string>
 
@@ -46,8 +46,9 @@
     <string name="dialog_titile_remove_bookmark_event">ブックマークの削除</string>
     <string name="dialog_content_remove_bookmark_event">ブックマークしたイベントを削除してもいいですか？</string>
 
-    <!-- 検索 -->
-    <string name="search_query_hint_keyword">キーワード</string>
+    <!-- ヒント -->
+    <string name="hint_search_query_keyword">キーワード</string>
+    <string name="hint_input_account_name">ATND アカウント名</string>
 
     <!-- イベント -->
     <string name="event_detail_no_participants">参加者はありません</string>
@@ -71,6 +72,9 @@
     <string name="pref_general_clear_bookmark_summary">ブックマーク数 : %1$d</string>
     <string name="pref_general_clear_bookmark_dialog_title">ブックマークのクリア</string>
     <string name="pref_general_clear_bookmark_dialog_msg">ブックマークをクリアしてもよろしいですか？</string>
+    <string name="pref_general_clear_suggest_title">検索履歴の履歴のクリア</string>
+    <string name="pref_general_clear_suggest_dialog_title">履歴のクリア</string>
+    <string name="pref_general_clear_suggest_dialog_msg">検索履歴を全て削除してもよろしいですか？</string>
     <string name="pref_atnd_title">ATNDユーザ名</string>
     <string name="pref_atnd_dialog_msg">ユーザ名を入力して下さい</string>
     <string name="pref_contact_apps_title">ご意見・要望の送信</string>
@@ -86,5 +90,8 @@
     <string name="mail_subject_request_apps">Evendroidの意見・要望</string>
     <string name="mail_share_title">Evendroidを共有</string>
     <string name="mail_share_detail">EvendroidはGooglePlayからダウンロード出来ます。 \n\n%1$s</string>
+
+    <!-- Misc -->
+    <string name="startup_create_account">Create ATND account</string>
 
 </resources>
