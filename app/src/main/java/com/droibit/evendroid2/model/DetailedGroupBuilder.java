@@ -53,16 +53,16 @@ public final class DetailedGroupBuilder {
         summaryGroup.add(schedule);
 
         // 会場
-        final Item place = new Item(event.getPlace(), R.drawable.ic_marker);
         if (event.getCoordinate() != null) {
+            final Item place = new Item(event.getPlace(), R.drawable.ic_marker);
             place.setListener(new OnDetailedItemClickListener() {
                 public void onClick() {
                     final PointF coord = event.getCoordinate();
                     IntentHepler.showOnGoogleMap(context, coord.y, coord.x);
                 }
             });
+            summaryGroup.add(place);
         }
-        summaryGroup.add(place);
 
         // Webページで見る
         final Item web = new Item(context.getString(R.string.event_detail_item_web_page), R.drawable.ic_globe);
