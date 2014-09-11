@@ -4,6 +4,7 @@
     <color name="theme_default_primary">#03a9f4</color>
     <color name="theme_default_primary_dark">#0277bd</color>
     <color name="theme_default_text_primary">#FFFFFF</color>
-    <color name="default_secondary_text">#646464</color>
+    <color name="theme_default_text_secondary">#E6E6E6</color>
+    <color name="default_item_secondary_text">#646464</color>
 
 </resources>

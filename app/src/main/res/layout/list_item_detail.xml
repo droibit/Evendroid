@@ -28,7 +28,7 @@
             android:layout_marginLeft="@dimen/material_side_edge"
             android:layout_marginRight="@dimen/material_side_edge"
             android:textSize="@dimen/material_textsize_medium"
-            android:textColor="@color/default_secondary_text"
+            android:textColor="@color/default_item_secondary_text"
             android:singleLine="true"
             android:ellipsize="end" />
 
