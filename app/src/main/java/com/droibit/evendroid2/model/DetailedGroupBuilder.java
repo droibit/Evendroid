@@ -8,8 +8,8 @@ import com.droibit.content.IntentHepler;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent.Item;
 import com.droibit.evendroid2.model.DetailedEvent.Group;
-import com.droibit.evendroid2.view.input.OnDetailedItemClickListener;
-import com.droibit.evendroid2.view.input.OnTransitionListener;
+import com.droibit.evendroid2.view.OnDetailedItemClickListener;
+import com.droibit.evendroid2.view.OnTransitionListener;
 import com.droibit.eventservice.social.EventServiceAccount;
 import com.droibit.eventservice.social.SocialAccount;
 import com.droibit.text.Strings;
@@ -53,16 +53,16 @@ public final class DetailedGroupBuilder {
         summaryGroup.add(schedule);
 
         // 会場
-        final Item place = new Item(event.getPlace(), R.drawable.ic_marker);
         if (event.getCoordinate() != null) {
+            final Item place = new Item(event.getPlace(), R.drawable.ic_marker);
             place.setListener(new OnDetailedItemClickListener() {
                 public void onClick() {
                     final PointF coord = event.getCoordinate();
                     IntentHepler.showOnGoogleMap(context, coord.y, coord.x);
                 }
             });
+            summaryGroup.add(place);
         }
-        summaryGroup.add(place);
 
         // Webページで見る
         final Item web = new Item(context.getString(R.string.event_detail_item_web_page), R.drawable.ic_globe);
@@ -123,14 +123,15 @@ public final class DetailedGroupBuilder {
         }
 
         // 関連ページ
-        final Item url = new Item(event.getUrl(), R.drawable.ic_globe);
-        url.setListener(new OnDetailedItemClickListener() {
-            public void onClick() {
-                // "---"の場合は起動メソッド内で弾いている。
-                IntentHepler.launchBrowser(context, event.getUrl());
-            }
-        });
-        ownerGroup.add(url);
+        if (event.getUrl().indexOf("://") != -1) {
+            final Item url = new Item(event.getUrl(), R.drawable.ic_globe);
+            url.setListener(new OnDetailedItemClickListener() {
+                public void onClick() {
+                    IntentHepler.launchBrowser(context, event.getUrl());
+                }
+            });
+            ownerGroup.add(url);
+        }
 
         return new Group[] {summaryGroup, usersGroup, ownerGroup};
     }

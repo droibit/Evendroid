@@ -18,7 +18,7 @@ import com.droibit.evendroid2.model.DetailMenuAction;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedGroupBuilder;
 import com.droibit.evendroid2.model.RefreshAction;
-import com.droibit.evendroid2.view.input.OnTransitionListener;
+import com.droibit.evendroid2.view.OnTransitionListener;
 import com.droibit.eventservice.EventServiceClient;
 import com.droibit.eventservice.events.atnd.EventResponse;
 import com.droibit.eventservice.http.url.EventParameters;
@@ -37,6 +37,7 @@ public class DetailEventFragment extends LoadableFragment
 
     private static final String KEY_EVENT_ID = "event_id";
     private static final String KEY_SHOW_OWNER_EVENTS = "show_owner_events";
+    private static final String KEY_GROPUED_EVENT_ITEMS = "grouped_event_items";
 
     private EventServiceClient mClient;
     private RecyclerView mRecyclerView;
@@ -127,8 +128,6 @@ public class DetailEventFragment extends LoadableFragment
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
-
-        //mContainerView = (LinearLayout) view.findViewById(R.id.container);
     }
 
     /** {@inheritDoc} */
@@ -153,6 +152,14 @@ public class DetailEventFragment extends LoadableFragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return mAction.onOptionsItemSelected(item);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        mClient.stop();
     }
 
     /** {@inheritDoc} */

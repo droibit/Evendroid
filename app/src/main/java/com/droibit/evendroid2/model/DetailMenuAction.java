@@ -19,7 +19,6 @@ import java.util.Calendar;
  */
 public class DetailMenuAction extends RefreshAction {
 
-    private Context mContext;
     private DetailedEvent mEvent;
 
     /**
@@ -30,8 +29,7 @@ public class DetailMenuAction extends RefreshAction {
      * @param responseCallback 検索結果を受け取るためのコールバック
      */
     public DetailMenuAction(@NonNull Context context, @NonNull IEventServiceClient client, @NonNull EventResponse.Callback responseCallback) {
-        super(client, responseCallback);
-        mContext = context;
+        super(context, client, responseCallback);
     }
 
     /**

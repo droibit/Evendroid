@@ -17,6 +17,10 @@ import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
 import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
@@ -44,6 +48,7 @@ public class SearchListFragment extends LoadableListFragment
             mSearchAction.onPostSearch();
             // エラーが発生した場合はコンテンツを非表示にする
             mAdapter.clear();
+            mAdapter.notifyDataSetChanged();
             setContentShown(true);
             // エラーメッセージを表示する。
             ToastManager.showShort(getActivity(), R.string.toast_failed_to_search_event);
@@ -56,18 +61,26 @@ public class SearchListFragment extends LoadableListFragment
             mAdapter.clear();
 
             // レスポンスにイベント情報が存在しない場合
-            // TODO: 続けてロードしたときうまくいかない
             if (!listableEventResponse.existsEvent()) {
+                // リストにはイベント情報を何も表示しない。
+                mAdapter.notifyDataSetChanged();
                 setContentShown(true);
                 ToastManager.showShort(getActivity(), R.string.toast_not_find_results);
                 return;
             }
 
+            // レスポンスからリスト表示するイベント群を作成する。
             final EventResponse.EventContainer[] responseEvents = listableEventResponse.events;
+            final List<ListableEvent> events = new ArrayList<ListableEvent>(responseEvents.length);
             for (EventResponse.EventContainer eventContainer : responseEvents) {
-                mAdapter.add(new ListableEvent(eventContainer.event));
+                events.add(new ListableEvent(eventContainer.event));
             }
+            // キーワード検索の場合ソートされていないので日付順にソートする。
+            Collections.sort(events);
+
+            mAdapter.addAll(events);
             mAdapter.notifyDataSetChanged();
+
             setContentShown(true);
         }
     };
@@ -99,6 +112,12 @@ public class SearchListFragment extends LoadableListFragment
 
     /** {@inheritDoc} */
     @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -117,6 +136,12 @@ public class SearchListFragment extends LoadableListFragment
         mSearchMenuItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) mSearchMenuItem.getActionView();
         mSearchAction.setSearchView(searchView, mSearchMenuItem);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     /** {@inheritDoc} */

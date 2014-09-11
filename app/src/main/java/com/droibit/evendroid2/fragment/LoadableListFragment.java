@@ -11,11 +11,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.droibit.app.fragment.LoadableFragment;
-import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.contoller.ListableEventViewAdapter;
-import com.droibit.evendroid2.view.input.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnListItemClickListener;
 import com.droibit.eventservice.EventServiceClient;
 import com.droibit.widget.ToastManager;
 
@@ -97,6 +96,9 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
     public void onDetach() {
         super.onDetach();
         mCallbacks = null;
+
+        // フラグメントがリプレイスされた場合にリクエストを止めるようにする。
+        mClient.stop();
     }
 
     /** {@inheritDoc} */
@@ -108,7 +110,7 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
     /** {@inheritDoc} */
     @Override
     public void onItemLongClick(IListableEvent event) {
-        ToastManager.showShort(getActivity(), event.getTitle());
+        ToastManager.showLong(getActivity(), event.getTitle());
     }
 
     /**

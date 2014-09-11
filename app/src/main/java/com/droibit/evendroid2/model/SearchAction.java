@@ -1,15 +1,27 @@
 package com.droibit.evendroid2.model;
 
+import android.app.Activity;
+import android.app.SearchableInfo;
 import android.content.Context;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.graphics.drawable.Drawable;
+import android.provider.SearchRecentSuggestions;
 import android.support.annotation.NonNull;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 
 import com.droibit.evendroid2.R;
+import com.droibit.evendroid2.SettingsActivity;
+import com.droibit.evendroid2.contoller.RecentSuggestionsProvider;
 import com.droibit.eventservice.IEventServiceClient;
 import com.droibit.eventservice.events.EventServices;
 import com.droibit.eventservice.events.atnd.EventResponse;
@@ -22,6 +34,9 @@ import com.droibit.eventservice.http.url.RequestContents;
 import com.droibit.eventservice.http.url.UrlParameter;
 import com.droibit.text.Strings;
 import com.droibit.utils.Debug;
+import com.droibit.utils.SystemServices;
+
+import static android.app.SearchManager.SUGGEST_COLUMN_TEXT_1;
 
 /**
  * {@link SearchView}を使用してイベント検索を行うためのクラス。
@@ -39,6 +54,7 @@ public class SearchAction implements SearchView.OnQueryTextListener,
     private EventRequest<EventResponse> mRequest;
     private EventResponse.Callback mResponseCallback;
     private OnSearchActionListener mSearchListener;
+    private SearchRecentSuggestions mSuggestions;
     private boolean mIsSearching;
 
     /**
@@ -60,7 +76,6 @@ public class SearchAction implements SearchView.OnQueryTextListener,
         mIsSearching = false;
     }
 
-
     /** {@inheritDoc} */
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -76,6 +91,7 @@ public class SearchAction implements SearchView.OnQueryTextListener,
 
         if (mSearchListener.onPreSearch(query)) {
             mIsSearching = true;
+            mSuggestions.saveRecentQuery(query, null);
             mClient.load(mRequest);
             return true;
         }
@@ -97,7 +113,10 @@ public class SearchAction implements SearchView.OnQueryTextListener,
     /** {@inheritDoc} */
     @Override
     public boolean onSuggestionClick(int position) {
-        return false;
+        final Cursor cursor = (Cursor) mSearchView.getSuggestionsAdapter().getItem(position);
+        final int columnIndex = cursor.getColumnIndex(SUGGEST_COLUMN_TEXT_1);
+        onQueryTextSubmit(cursor.getString(columnIndex));
+        return true;
     }
 
     /** {@inheritDoc} */
@@ -134,17 +153,41 @@ public class SearchAction implements SearchView.OnQueryTextListener,
     public void setSearchView(@NonNull SearchView searchView, @NonNull MenuItem searchMenuItem) {
         mSearchMenuItem = searchMenuItem;
         mSearchView = searchView;
-        mSearchView.setQueryHint(mContext.getString(R.string.search_query_hint_keyword));
+        //mSearchView.setQueryHint(mContext.getString(R.string.search_query_hint_keyword));
         mSearchView.setOnQueryTextListener(this);
         mSearchView.setOnSuggestionListener(this);
         mSearchView.setOnQueryTextFocusChangeListener(this);
+
+        // サジェストを表示するための設定をする。
+        final SearchableInfo searchableInfo = SystemServices.getSearchManager(mContext)
+                .getSearchableInfo(((Activity) mContext).getComponentName());
+        mSearchView.setSearchableInfo(searchableInfo);
+        mSuggestions = RecentSuggestionsProvider.newRecentSuggestions(mContext);
 
         // アクションバーのアイコンを変更する。
         // ※ アクションバーの色を変更しているためSearchViewのアイコンが合わない。
         final Resources res = searchView.getResources();
         final int searchButtonId = res.getIdentifier("android:id/search_button", null, null);
-        final ImageView v = (ImageView) mSearchView.findViewById(searchButtonId);
-        v.setImageResource(R.drawable.ic_action_search);
+        final ImageView searchButton = (ImageView) mSearchView.findViewById(searchButtonId);
+        searchButton.setImageResource(R.drawable.ic_action_search);
+        // 「×」ボタンのアイコンを変更する。
+        final int closeButtonId = res.getIdentifier("android:id/search_close_btn", null, null);
+        final ImageView closeButton = (ImageView) mSearchView.findViewById(closeButtonId);
+        closeButton.setImageResource(R.drawable.ic_action_cancel);
+        // 検索の下線の部分の画像を変更する。
+        final int searchPlateId = res.getIdentifier("android:id/search_plate", null, null);
+        final LinearLayout searchPlate = (LinearLayout) mSearchView.findViewById(searchPlateId);
+        searchPlate.setBackgroundResource(R.drawable.edit_frame_holo);
+        // ヒント左のアイコンを変更する。
+        final int searchTextId = res.getIdentifier("android:id/search_src_text", null, null);
+        final AutoCompleteTextView searchText = (AutoCompleteTextView) searchPlate.findViewById(searchTextId);
+        final SpannableStringBuilder ssb = new SpannableStringBuilder("   ");
+        ssb.append(mContext.getString(R.string.hint_search_query_keyword));
+        final Drawable searchIcon = res.getDrawable(R.drawable.ic_action_search_hint);
+        final int textSize = (int) (searchText.getTextSize() * 1.25);
+        searchIcon.setBounds(0, 0, textSize, textSize);
+        ssb.setSpan(new ImageSpan(searchIcon), 1, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        searchText.setHint(ssb);
     }
 
     /**
@@ -161,7 +204,8 @@ public class SearchAction implements SearchView.OnQueryTextListener,
 
         final GetRequest.Builder builder = new GetRequest.Builder()
                 .append(EventServices.ATND, RequestContents.EVENT)
-                .append(EventParameters.KEYWORD, keyword);
+                .append(EventParameters.KEYWORD, keyword)
+                .append(EventParameters.COUNT, String.valueOf(SettingsActivity.getLoadCount(mContext)));
         return EventResponse.createRequest(builder.build(), mResponseCallback);
     }
 

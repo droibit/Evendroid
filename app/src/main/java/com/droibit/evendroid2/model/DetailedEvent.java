@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.util.DateFormatter;
-import com.droibit.evendroid2.view.input.OnDetailedItemClickListener;
+import com.droibit.evendroid2.view.OnDetailedItemClickListener;
 import com.droibit.eventservice.events.EventServices;
 import com.droibit.eventservice.events.atnd.EventResponse;
 import com.droibit.eventservice.http.url.WebPage;

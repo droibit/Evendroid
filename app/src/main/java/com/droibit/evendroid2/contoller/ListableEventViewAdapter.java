@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.ListableEvent;
-import com.droibit.evendroid2.view.input.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnListItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +87,15 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
      */
     public void add(@NonNull ListableEvent item) {
         mEvents.add(item);
+    }
+
+    /**
+     * 新しいイベント情報群を追加する。
+     *
+     * @param items 新しいイベント情報群
+     */
+    public void addAll(@NonNull List<ListableEvent> items) {
+        mEvents.addAll(items);
     }
 
 

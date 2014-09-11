@@ -4,6 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="@dimen/material_list_header_height"
+    android:background="?android:attr/activatedBackgroundIndicator"
     android:minHeight="?android:attr/listPreferredItemHeightSmall">
 
     <ImageView
@@ -24,7 +25,7 @@
         android:layout_marginLeft="@dimen/material_side_edge"
         android:layout_marginRight="@dimen/material_side_edge"
         android:textSize="@dimen/material_textsize_large"
-        android:textColor="@color/default_secondary_text"
+        android:textColor="@color/default_item_secondary_text"
         android:singleLine="true"
         android:ellipsize="end" />
 

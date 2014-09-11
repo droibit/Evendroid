@@ -59,11 +59,12 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            if (getFragmentManager().getBackStackEntryCount() > 0) {
-                getFragmentManager().popBackStack();
-            } else {
-                finish();
-            }
+//            if (getFragmentManager().getBackStackEntryCount() > 0) {
+//                getFragmentManager().popBackStack();
+//            } else {
+//                finish();
+//            }
+            finish();
             return true;
         }
         return false;

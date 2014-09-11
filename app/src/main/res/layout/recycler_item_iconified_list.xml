@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/text_title"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="@dimen/list_item_title_height"
             android:layout_toRightOf="@id/image_available"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/material_side_edge"
@@ -33,29 +33,29 @@
             android:ellipsize="end" />
         <TextView
             android:id="@+id/text_address"
-            android:layout_width="180dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/list_iconified_item_address_width"
+            android:layout_height="@dimen/list_item_secondary_text_height"
             android:layout_marginLeft="@dimen/material_side_edge"
             android:layout_marginRight="@dimen/material_half_side_edge"
             android:layout_toRightOf="@id/image_available"
             android:layout_centerVertical="true"
             android:layout_alignBottom="@id/text_title"
             android:textSize="@dimen/material_textsize_xsmall"
-            android:textColor="@color/default_secondary_text"
+            android:textColor="@color/default_item_secondary_text"
             android:singleLine="true"
             android:ellipsize="end"
             android:text="@string/app_name" />
         <TextView
             android:id="@+id/text_startat"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="@dimen/list_item_secondary_text_height"
             android:ellipsize="marquee"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_alignBottom="@id/text_title"
             android:layout_marginRight="@dimen/material_side_edge"
             android:textSize="@dimen/material_textsize_xsmall"
-            android:textColor="@color/default_secondary_text"
+            android:textColor="@color/default_item_secondary_text"
             android:singleLine="true" />
 
     </RelativeLayout>

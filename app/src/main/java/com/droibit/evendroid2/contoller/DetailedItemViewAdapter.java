@@ -1,12 +1,9 @@
 package com.droibit.evendroid2.contoller;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,7 +12,6 @@ import android.view.ViewGroup.LayoutParams;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedEvent.Item;
-import com.droibit.evendroid2.view.DetailedItemView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,10 +59,7 @@ public class DetailedItemViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = View.inflate(mContext, R.layout.list_item_detail, null);
-            final int height = (int) mContext.getResources().getDimension(R.dimen.material_list_header_height);
-            final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
-            convertView.setLayoutParams(params);
+            convertView = createItemView();
         }
         final TextView titleView = (TextView) convertView.findViewById(R.id.text_title);
         final ImageView iconView = (ImageView) convertView.findViewById(R.id.image_icon);
@@ -78,12 +71,32 @@ public class DetailedItemViewAdapter extends BaseAdapter {
         return convertView;
     }
 
+    /**
+     * 詳細項目を全て削除する。
+     */
     public void clear() {
         mItems.clear();
     }
 
+    /**
+     * 詳細項目を追加する。
+     *
+     * @param items 詳細項目のリスト。
+     */
     public void addAll(@NonNull List<Item> items) {
         mItems.addAll(items);
         notifyDataSetChanged();
+    }
+
+    private View createItemView() {
+        final View convertView = View.inflate(mContext, R.layout.list_item_detail, null);
+
+        final int height = (int) mContext.getResources().getDimension(R.dimen.material_list_header_height);
+        final LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
+        convertView.setLayoutParams(params);
+        convertView.setClickable(true);
+
+
+        return convertView;
     }
 }

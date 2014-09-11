@@ -54,7 +54,6 @@ public class PrefAppFragment extends PreferenceFragment implements
 			final Uri appUri = IntentHepler
 					.makeBrowserGooglePlayUri(getActivity().getPackageName());
 			final IntentMailArgs args = new IntentMailArgs();
-            args.address = getString(R.string.mail_address);
             args.title = getString(R.string.mail_share_title);
             args.contents = getString(R.string.mail_share_detail, appUri.toString());
 			IntentHepler.sendMail(getActivity(), args);

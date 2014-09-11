@@ -7,6 +7,7 @@
         <item name="android:actionBarWidgetTheme">@style/ActionBarWidget</item>
         <item name="android:actionOverflowButtonStyle">@style/ActionBarOverFlowButton</item>
         <item name="android:actionMenuTextColor">@color/theme_default_text_primary</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_action_up</item>
     </style>
 
     <!-- Disable theme. -->
@@ -27,6 +28,7 @@
     </style>
     <!-- ActionBar Widget -->
     <style name="ActionBarWidget" parent="android:Theme.Holo">
+        <item name="android:autoCompleteTextViewStyle">@android:style/Widget.Holo.Light.AutoCompleteTextView</item>
         <item name="android:popupMenuStyle">@android:style/Widget.Holo.Light.PopupMenu</item>
         <item name="android:dropDownListViewStyle">@android:style/Widget.Holo.Light.ListView.DropDown</item>
         <item name="android:textColor">@android:color/black</item>

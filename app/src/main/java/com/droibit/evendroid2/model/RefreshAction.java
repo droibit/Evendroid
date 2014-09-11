@@ -1,14 +1,17 @@
 package com.droibit.evendroid2.model;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
 
 import com.droibit.evendroid2.R;
+import com.droibit.evendroid2.SettingsActivity;
 import com.droibit.eventservice.IEventServiceClient;
 import com.droibit.eventservice.events.EventServices;
 import com.droibit.eventservice.events.atnd.EventResponse;
 import com.droibit.eventservice.http.GetRequest;
 import com.droibit.eventservice.http.IGetRequest;
+import com.droibit.eventservice.http.url.EventParameters;
 import com.droibit.eventservice.http.url.IParameterKey;
 import com.droibit.eventservice.http.url.RequestContents;
 
@@ -21,6 +24,7 @@ import com.droibit.eventservice.http.url.RequestContents;
 public class RefreshAction {
 
     protected Condition mCondition;
+    protected final Context mContext;
 
     private final IEventServiceClient mClient;
     private final EventResponse.Callback mResponseCallback;
@@ -30,10 +34,12 @@ public class RefreshAction {
     /**
      * コンストラクタ
      *
+     * @param context コンテキスト
      * @param client サービスのクライアント
      * @param responseCallback 検索結果を受け取るためのコールバック
      */
-      public RefreshAction(@NonNull IEventServiceClient client, @NonNull EventResponse.Callback responseCallback) {
+      public RefreshAction(@NonNull Context context, @NonNull IEventServiceClient client, @NonNull EventResponse.Callback responseCallback) {
+          mContext = context;
           mClient = client;
           mResponseCallback = responseCallback;
       }
@@ -63,6 +69,7 @@ public class RefreshAction {
             final IGetRequest getRequest = new GetRequest.Builder()
                     .append(EventServices.ATND, RequestContents.EVENT)
                     .append(mCondition.key, mCondition.value)
+                    .append(EventParameters.COUNT, String.valueOf(SettingsActivity.getLoadCount(mContext)))
                     .build();
             mClient.load(EventResponse.createRequest(getRequest, mResponseCallback));
             mIsRefreshing = true;
