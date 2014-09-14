@@ -32,6 +32,7 @@
 
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -45,9 +46,15 @@
             android:label="@string/title_activity_detail" />
 
         <provider
-            android:authorities="com.droibit.evendroid2.contoller.RecentSuggestionsProvider"
-            android:name=".contoller.RecentSuggestionsProvider" >
+            android:name=".contoller.RecentSuggestionsProvider"
+            android:authorities="com.droibit.evendroid2.contoller.RecentSuggestionsProvider" >
         </provider>
+
+        <activity
+            android:name=".StartupActivity"
+            android:label="@string/title_activity_startup"
+            android:theme="@style/NoActionBarTheme">
+        </activity>
     </application>
 
 </manifest>

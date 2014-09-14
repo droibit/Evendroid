@@ -41,8 +41,10 @@
             android:singleLine="true"
             android:textColor="@color/theme_default_text_primary"
             android:textColorHint="@color/theme_default_text_secondary"
+            android:background="@drawable/edit_text_holo_light"
             android:textSize="@dimen/material_textsize_large"
             android:hint="@string/hint_input_account_name"
+            android:focusable="true"
             android:minEms="10"/>
 
         <Button
@@ -68,10 +70,12 @@
             android:id="@+id/button_create_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/material_half_side_edge"
+            android:paddingRight="@dimen/material_half_side_edge"
             android:text="@string/startup_create_account"
             android:textSize="@dimen/material_textsize_medium"
             android:textColor="@color/theme_default_text_secondary"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:background="?android:attr/selectableItemBackground" />
 
     </LinearLayout>
 

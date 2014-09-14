@@ -4,6 +4,7 @@
     <string name="app_name">Evendroid</string>
     <string name="title_activity_detail">Detail</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_startup">Startup</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -51,7 +52,7 @@
 
     <!-- ヒント -->
     <string name="hint_search_query_keyword">Keyword</string>
-    <string name="hint_input_account_name">ATND account name</string>
+    <string name="hint_input_account_name">ATND Account </string>
 
     <!-- イベント -->
     <string name="event_detail_no_participants">No participants</string>
@@ -61,6 +62,13 @@
     <string name="event_detail_section_owner">Owner</string>
     <string name="event_detail_item_web_page">More detail</string>
     <string name="event_detail_item_owner_event">Owner events</string>
+
+    <!-- スタートアップ -->
+    <string name="startup_dialog_title_account">Account</string>
+    <string name="startup_dialog_content_guide_account">The account can be changed from the settings</string>
+    <string name="startup_dialog_content_warning_account">Do you not need to input an account? You can enter the account settings later.</string>
+    <string name="startup_dialog_title_create_account">Create Account</string>
+    <string name="startup_dialog_content_create_account">After you create the account from HP of ATND, enter the account</string>
 
     <!-- プレファレンス -->
     <string name="pref_header_event">Event</string>
