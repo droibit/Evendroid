@@ -77,9 +77,11 @@ public class SearchListFragment extends LoadableListFragment
             }
             // キーワード検索の場合ソートされていないので日付順にソートする。
             Collections.sort(events);
-
             mAdapter.addAll(events);
             mAdapter.notifyDataSetChanged();
+
+            // スクロールの位置を先頭に戻す
+            mRecyclerView.scrollToPosition(0);
 
             setContentShown(true);
         }

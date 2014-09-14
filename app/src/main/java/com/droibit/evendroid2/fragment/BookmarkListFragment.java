@@ -158,7 +158,7 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
-    public void onClickOk() {
+    public void onDialogClickOk(int dialogKey) {
         final BookmarkableEvent bookmark = (BookmarkableEvent) mSelectedBookmark;
         bookmark.delete();
         mAdapter.remove(mSelectedBookmark);
@@ -169,7 +169,7 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
-    public void onClickCancel() {
+    public void onDialogClickCancel(int dialogKey) {
         mSelectedBookmark = null;
     }
 
@@ -195,7 +195,6 @@ public class BookmarkListFragment extends LoadableFragment
             @Override
             public void onFail(Throwable result) {
                 Debug.log(result.getMessage());
-                //ToastManager.showShort(getActivity(), R.string.failed);
             }
         });
     }

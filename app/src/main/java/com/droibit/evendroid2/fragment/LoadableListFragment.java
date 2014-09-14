@@ -30,12 +30,11 @@ import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW
  */
 public class LoadableListFragment extends LoadableFragment implements OnListItemClickListener {
 
+    protected RecyclerView mRecyclerView;
     protected ListableEventViewAdapter mAdapter;
     protected EventServiceClient mClient;
     protected TextView mHeaderView;
     protected CallBacks mCallbacks;
-
-    private RecyclerView mRecyclerView;
 
     public LoadableListFragment() {
         // Required empty public constructor
