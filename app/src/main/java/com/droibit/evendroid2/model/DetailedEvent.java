@@ -219,7 +219,6 @@ public class DetailedEvent {
         toDate.setTime(startedAt);
         fromDate.setTime(endedAt);
 
-        // TODO: 日付のロケールが間違っている？
         final String started = DateFormatter.toLongDateString(startedAt);
         final String ended;
         // イベントの日程が一日で完結する場合
