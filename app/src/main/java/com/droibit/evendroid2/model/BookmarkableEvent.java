@@ -15,7 +15,7 @@ import com.droibit.text.Strings;
  * @since 2014/09/03
  */
 @Table(name = "bookmark")
-public class BookmarkableEvent extends Model implements IListableEvent {
+public class BookmarkableEvent extends Model implements IListableEvent, Comparable<BookmarkableEvent> {
 
     /** イベントごとのユニークなID */
     @Column(name = "eventId", notNull = true)
@@ -86,5 +86,32 @@ public class BookmarkableEvent extends Model implements IListableEvent {
     @Override
     public String getAddress() {
         return address;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BookmarkableEvent)) return false;
+
+        BookmarkableEvent that = (BookmarkableEvent) o;
+
+        if (!eventId.equals(that.eventId)) return false;
+
+        return true;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + eventId.hashCode();
+        return result;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public int compareTo(BookmarkableEvent another) {
+        return eventId.compareTo(another.eventId);
     }
 }
