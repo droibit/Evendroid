@@ -48,7 +48,7 @@
 
     <!-- ヒント -->
     <string name="hint_search_query_keyword">キーワード</string>
-    <string name="hint_input_account_name">ATND アカウント名</string>
+    <string name="hint_input_account_name">ATND アカウント</string>
 
     <!-- イベント -->
     <string name="event_detail_no_participants">参加者はありません</string>
@@ -58,6 +58,13 @@
     <string name="event_detail_section_owner">主催者</string>
     <string name="event_detail_item_web_page">詳細ページへ</string>
     <string name="event_detail_item_owner_event">主催イベント一覧</string>
+
+    <!-- スタートアップ -->
+    <string name="startup_dialog_title_account">案内</string>
+    <string name="startup_dialog_content_guide_account">アカウントは設定から変更することもできます</string>
+    <string name="startup_dialog_content_warning_account">アカウントが入力されていませんがよろしいですか？\n後で設定から入力することも\nできます</string>
+    <string name="startup_dialog_title_create_account">アカウントの作成</string>
+    <string name="startup_dialog_content_create_account">ATND サイトよりアカウントを作成してから、\nアカウント名を入力して下さい</string>
 
     <!-- プレファレンス -->
     <string name="pref_header_general">全般</string>

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.SearchView;
 
 import com.android.volley.VolleyError;
-import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.ListableEvent;
 import com.droibit.evendroid2.model.SearchAction;
@@ -16,14 +15,14 @@ import com.droibit.eventservice.events.atnd.EventResponse;
 import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
+import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
+import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 
 /**
  * イベントを検索するためのフラグメント。
@@ -47,9 +46,10 @@ public class SearchListFragment extends LoadableListFragment
 
             mSearchAction.onPostSearch();
             // エラーが発生した場合はコンテンツを非表示にする
-            mAdapter.clear();
-            mAdapter.notifyDataSetChanged();
-            setContentShown(true);
+            if (mExistsView) {
+                mAdapter.clear();
+                setContentShownNoAnimation(true);
+            }
             // エラーメッセージを表示する。
             ToastManager.showShort(getActivity(), R.string.toast_failed_to_search_event);
         }
@@ -58,12 +58,17 @@ public class SearchListFragment extends LoadableListFragment
         @Override
         public void onResponse(EventResponse listableEventResponse) {
             mSearchAction.onPostSearch();
-            mAdapter.clear();
+
+            // ビューが破棄されている場合は処理をスキップする。
+            // ※ [戻る]処理の後にレスポンスを受け取った場合の対策。
+            if (!mExistsView) {
+                return;
+            }
 
             // レスポンスにイベント情報が存在しない場合
             if (!listableEventResponse.existsEvent()) {
                 // リストにはイベント情報を何も表示しない。
-                mAdapter.notifyDataSetChanged();
+                mAdapter.clear();
                 setContentShown(true);
                 ToastManager.showShort(getActivity(), R.string.toast_not_find_results);
                 return;
@@ -71,15 +76,16 @@ public class SearchListFragment extends LoadableListFragment
 
             // レスポンスからリスト表示するイベント群を作成する。
             final EventResponse.EventContainer[] responseEvents = listableEventResponse.events;
-            final List<ListableEvent> events = new ArrayList<ListableEvent>(responseEvents.length);
+            final List<ListableEvent> events = Lists.newArrayListWithCapacity(responseEvents.length);
             for (EventResponse.EventContainer eventContainer : responseEvents) {
                 events.add(new ListableEvent(eventContainer.event));
             }
             // キーワード検索の場合ソートされていないので日付順にソートする。
             Collections.sort(events);
+            mAdapter.replace(events);
 
-            mAdapter.addAll(events);
-            mAdapter.notifyDataSetChanged();
+            // スクロールの位置を先頭に戻す
+            mRecyclerView.scrollToPosition(0);
 
             setContentShown(true);
         }

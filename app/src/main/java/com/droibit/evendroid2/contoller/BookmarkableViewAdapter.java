@@ -11,10 +11,9 @@ import android.widget.TextView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.BookmarkableEvent;
-import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.view.OnListItemClickListener;
+import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,7 +38,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
      */
     public BookmarkableViewAdapter(@NonNull Context context, @NonNull OnListItemClickListener listener) {
         mContext = context;
-        mEvents = new ArrayList<BookmarkableEvent>();
+        mEvents = Lists.newArrayList();
         mSelectedItems = new SparseBooleanArray();
         mListener = listener;
     }
@@ -71,6 +70,14 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
         mEvents.clear();
     }
 
+    /**
+     * リストの項目が空かどうか。
+     *
+     * @return trueの場合は空、falseの場合存在する
+     */
+    public boolean isEmpty() {
+        return mEvents.isEmpty();
+    }
 
     /**
      * リストの項目数を取得する。
@@ -85,14 +92,25 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
      * ブックマーク情報を削除する。
      *
      * @param event ブックマーク情報
+     * @return  削除した項目のインデックス
      */
-    public void remove(IListableEvent event) {
+    public void remove(BookmarkableEvent event) {
         final BookmarkableEvent bookmark = (BookmarkableEvent) event;
         final int position = mEvents.indexOf(bookmark);
         if (position != -1) {
             mEvents.remove(position);
             notifyItemRemoved(position);
         }
+    }
+
+    /**
+     * 複数のブックマークを削除する。
+     *
+     * @param events 削除対象のブックマーク
+     */
+    public void removeAll(List<BookmarkableEvent> events) {
+        mEvents.removeAll(events);
+        notifyDataSetChanged();
     }
 
     /**
@@ -103,6 +121,26 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
     public void addAll(@NonNull List<BookmarkableEvent> events) {
         mEvents.addAll(events);
         notifyDataSetChanged();
+    }
+
+    /**
+     * ブックマークを置き換える。
+     *
+     * @param events 対象のブックマーク
+     */
+    public void replace(@NonNull List<BookmarkableEvent> events) {
+        mEvents.clear();
+        addAll(events);
+    }
+
+    /**
+     * ブックマークしたイベントリストを取得する。
+     *
+     * @return ブックマークしたイベントのリスト
+     */
+    @NonNull
+    public List<BookmarkableEvent> getEvents() {
+        return mEvents;
     }
 
     /**

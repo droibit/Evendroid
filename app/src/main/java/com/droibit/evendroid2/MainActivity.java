@@ -1,10 +1,14 @@
 package com.droibit.evendroid2;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,8 +16,10 @@ import android.view.MenuItem;
 import com.droibit.evendroid2.fragment.LoadableListFragment;
 import com.droibit.evendroid2.fragment.util.NavContentFragmentFactory;
 import com.droibit.evendroid2.fragment.NavigationDrawerFragment;
+import com.droibit.utils.EnvironmentInfo;
 
 import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
+import static com.droibit.evendroid2.StartupActivity.KEY_FINISHED_START_UP;
 
 /**
  * @author kumagai
@@ -39,8 +45,18 @@ public class MainActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!pref.getBoolean(KEY_FINISHED_START_UP, false)) {
+            final Intent intent = new Intent(this, StartupActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if (EnvironmentInfo.hasJellyBeanMR2()) {
+            getActionBar().setHomeAsUpIndicator(null);
+        }
         setContentView(R.layout.activity_main);
-        getActionBar().setDisplayHomeAsUpEnabled(false);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);

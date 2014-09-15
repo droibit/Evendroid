@@ -45,6 +45,7 @@ public class DetailEventFragment extends LoadableFragment
     private DetailMenuAction mAction;
     private String mEventId;
     private boolean mShowOwnerEvents;
+    private boolean mExistView;
 
     /** 検索のレスポンスを受け取るためのコールバック */
     private EventResponse.Callback mResponseCallback = new  EventResponse.Callback() {
@@ -53,8 +54,10 @@ public class DetailEventFragment extends LoadableFragment
         public void onErrorResponse(VolleyError volleyError) {
             Debug.log(volleyError.getLocalizedMessage());
 
-            mAction.onPostRefresh();
-            setContentShown(true);
+            if (mExistView) {
+                mAction.onPostRefresh();
+                setContentShown(true);
+            }
             // エラーメッセージを表示する。
             ToastManager.showShort(getActivity(), R.string.toast_failed_to_fetch_event);
         }
@@ -63,6 +66,11 @@ public class DetailEventFragment extends LoadableFragment
         @Override
         public void onResponse(EventResponse listableEventResponse) {
             mAction.onPostRefresh();
+
+            // ビューが存在しない場合は処理をスキップする
+            if (!mExistView) {
+                return;
+            }
 
             // レスポンスにイベント情報が存在しない場合
             if (!listableEventResponse.existsEvent()) {
@@ -78,8 +86,7 @@ public class DetailEventFragment extends LoadableFragment
 
             final DetailedEvent.Group[] groups = DetailedGroupBuilder.build(getActivity(), event,
                     DetailEventFragment.this, mShowOwnerEvents);
-            mAdapter.clear();
-            mAdapter.addAll(groups);
+            mAdapter.replace(groups);
 
             setContentShown(true);
         }
@@ -128,6 +135,8 @@ public class DetailEventFragment extends LoadableFragment
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
+
+        mExistView = true;
     }
 
     /** {@inheritDoc} */
@@ -136,6 +145,14 @@ public class DetailEventFragment extends LoadableFragment
         super.onActivityCreated(savedInstanceState);
 
         mAction.onRefresh();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        mExistView = false;
     }
 
     /** {@inheritDoc} */

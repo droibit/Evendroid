@@ -50,6 +50,12 @@ public final class DetailedGroupBuilder {
 
         // スケジュール
         final Item schedule = new Item(event.getSchedule(), R.drawable.ic_clock);
+        schedule.setListener(new OnDetailedItemClickListener() {
+            @Override
+            public void onClick() {
+                ToastManager.showLong(context, event.getSchedule());
+            }
+        });
         summaryGroup.add(schedule);
 
         // 会場

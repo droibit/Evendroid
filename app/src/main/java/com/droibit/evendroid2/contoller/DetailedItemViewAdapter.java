@@ -4,16 +4,16 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.ViewGroup.LayoutParams;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedEvent.Item;
+import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +34,7 @@ public class DetailedItemViewAdapter extends BaseAdapter {
      */
     public DetailedItemViewAdapter(@NonNull Context context) {
         mContext = context;
-        mItems = new ArrayList<Item>();
+        mItems = Lists.newArrayList();
     }
 
     /** {@inheritDoc} */

@@ -16,23 +16,23 @@ import com.droibit.app.fragment.dialog.DialogFramgentInfo;
 import com.droibit.app.fragment.dialog.OkCancelDialogFragment;
 import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
+import com.droibit.evendroid2.contoller.BookmarkableViewAdapter;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.evendroid2.model.IListableEvent;
-import com.droibit.evendroid2.contoller.BookmarkableViewAdapter;
 import com.droibit.evendroid2.view.OnListItemClickListener;
-import com.droibit.utils.Debug;
+import com.google.common.collect.Lists;
 
 import org.jdeferred.DoneCallback;
-import org.jdeferred.FailCallback;
 import org.jdeferred.android.AndroidDeferredManager;
 import org.jdeferred.android.DeferredAsyncTask;
 
+import java.util.Collections;
 import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 import static com.droibit.evendroid2.fragment.LoadableListFragment.CallBacks;
+import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 
 /**
  * ブックマークした情報をリスト表示するためのクラス。
@@ -86,6 +86,7 @@ public class BookmarkListFragment extends LoadableFragment
         super.onCreate(savedInstanceState);
 
         setHasOptionsMenu(true);
+        setRetainInstance(true);
     }
 
     /** {@inheritDoc} */
@@ -107,29 +108,23 @@ public class BookmarkListFragment extends LoadableFragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        loadBookmarks();
-
-        setRetainInstance(true);
     }
 
     /** {@inheritDoc} */
     @Override
     public void onResume() {
         super.onResume();
+
+        loadBookmarks();
     }
-
-    /** {@inheritDoc} */
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-
 
     /** {@inheritDoc} */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // ナビゲーションが表示されているときはメニューを上書きしないようにする。
+        if (mCallbacks.isDrawerOpen()) {
+            return;
+        }
         inflater.inflate(R.menu.global, menu);
     }
 
@@ -158,10 +153,12 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
-    public void onClickOk() {
-        final BookmarkableEvent bookmark = (BookmarkableEvent) mSelectedBookmark;
-        bookmark.delete();
-        mAdapter.remove(mSelectedBookmark);
+    public void onDialogClickOk(int dialogKey) {
+        final BookmarkableEvent event = (BookmarkableEvent) mSelectedBookmark;
+        event.delete();
+
+        // 選択したブックマークを削除する。
+        mAdapter.remove(event);
         mSelectedBookmark = null;
 
         setListHeaderContent(mAdapter.count());
@@ -169,11 +166,15 @@ public class BookmarkListFragment extends LoadableFragment
 
     /** {@inheritDoc} */
     @Override
-    public void onClickCancel() {
+    public void onDialogClickCancel(int dialogKey) {
         mSelectedBookmark = null;
     }
 
     private void loadBookmarks() {
+        if (mAdapter.isEmpty()) {
+            setContentShown(false);
+        }
+
         new AndroidDeferredManager()
         .when(new DeferredAsyncTask<Void, Void, List<BookmarkableEvent>>() {
             @Override
@@ -183,21 +184,44 @@ public class BookmarkListFragment extends LoadableFragment
         }).done(new DoneCallback<List<BookmarkableEvent>>() {
             @Override
             public void onDone(List<BookmarkableEvent> result) {
-                if (result != null && !result.isEmpty()) {
-                    mAdapter.clear();
-                    mAdapter.addAll(result);
-                    setListHeaderContent(result.size());
-                } else {
-                    setListHeaderContent(0);
-                }
-            }
-        }).fail(new FailCallback<Throwable>() {
-            @Override
-            public void onFail(Throwable result) {
-                Debug.log(result.getMessage());
-                //ToastManager.showShort(getActivity(), R.string.failed);
+                onLoadBookmarkedEvents(result);
             }
         });
+    }
+
+    private void onLoadBookmarkedEvents(final List<BookmarkableEvent> events) {
+        if (mAdapter.isEmpty()) {
+            // ブックマークしたイベントが何もない場合
+            if ((events == null || events.isEmpty())) {
+                setListHeaderContent(0);
+            } else {
+                // ブックマークが何もなかった場合
+                mAdapter.addAll(events);
+                setListHeaderContent(events.size());
+            }
+            setContentShown(true);
+            return;
+        }
+
+        final List<BookmarkableEvent> newEvents = Lists.newArrayList(events);
+        final List<BookmarkableEvent> oldEvents = Lists.newArrayList(mAdapter.getEvents());
+        if (newEvents.size() != oldEvents.size()) {
+            // ブックマーク数が増減した場合はリストの内容を入れ替える。
+            mAdapter.replace(newEvents);
+        } else {
+            // ブックマーク数が同じ場合は項目が変わっている場合のみリストを入れ替える。
+            Collections.sort(newEvents);
+            Collections.sort(oldEvents);
+            for (int i = 0, size = newEvents.size(); i < size; i++) {
+                if (!newEvents.get(i).equals(oldEvents.get(i))) {
+                    mAdapter.replace(newEvents);
+                    break;
+                }
+            }
+        }
+        setListHeaderContent(mAdapter.count());
+
+        //setContentShown(true);
     }
 
     private void setListHeaderContent(int bookmarkCount) {

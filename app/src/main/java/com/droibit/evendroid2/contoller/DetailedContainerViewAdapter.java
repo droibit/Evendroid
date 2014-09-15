@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent;
-import com.droibit.utils.Debug;
+import com.google.common.collect.Lists;
 import com.linearlistview.LinearListView;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class DetailedContainerViewAdapter extends RecyclerView.Adapter<DetailedC
      */
     public DetailedContainerViewAdapter(@NonNull Context context) {
         mContext = context;
-        mGroups = new ArrayList<DetailedEvent.Group>(4);
+        mGroups = Lists.newArrayListWithCapacity(4);
     }
 
     /** {@inheritDoc} */
@@ -69,29 +69,13 @@ public class DetailedContainerViewAdapter extends RecyclerView.Adapter<DetailedC
     }
 
     /**
-     * 表示するを全て削除する。
+     * 表示する項目を全て置き換える。
+     *
+     * @param groups 表示する項目
      */
-    public void clear() {
+    public void replace(DetailedEvent.Group[] groups) {
         mGroups.clear();
-    }
-
-    /**
-     * 表示する項目を全て追加する。
-     *
-     * @param groups 表示する項目
-     */
-    public void addAll(DetailedEvent.Group[] groups) {
         mGroups.addAll(Arrays.asList(groups));
-        notifyDataSetChanged();
-    }
-
-    /**
-     * 表示する項目を全て追加する。
-     *
-     * @param groups 表示する項目
-     */
-    public void addAll(List<DetailedEvent.Group> groups) {
-        mGroups.addAll(groups);
         notifyDataSetChanged();
     }
 

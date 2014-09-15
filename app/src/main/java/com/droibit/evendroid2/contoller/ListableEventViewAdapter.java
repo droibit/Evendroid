@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.ListableEvent;
 import com.droibit.evendroid2.view.OnListItemClickListener;
+import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +43,7 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
      */
     public ListableEventViewAdapter(@NonNull Context context, @NonNull OnListItemClickListener listener, boolean showAvailableIcon) {
         mContext = context;
-        mEvents = new ArrayList<ListableEvent>();
+        mEvents = Lists.newArrayList();
         mListener = listener;
         mShowAvailableIcon = showAvailableIcon;
     }
@@ -81,21 +81,14 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
     }
 
     /**
-     * 新しい項目を追加する。
-     *
-     * @param item 新しいイベント情報
-     */
-    public void add(@NonNull ListableEvent item) {
-        mEvents.add(item);
-    }
-
-    /**
-     * 新しいイベント情報群を追加する。
+     * 新しいイベント情報群を置き換える。
      *
      * @param items 新しいイベント情報群
      */
-    public void addAll(@NonNull List<ListableEvent> items) {
+    public void replace(@NonNull List<ListableEvent> items) {
+        mEvents.clear();
         mEvents.addAll(items);
+        notifyDataSetChanged();
     }
 
 
@@ -104,6 +97,7 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
      */
     public void clear() {
         mEvents.clear();
+        notifyDataSetChanged();
     }
 
     /**
