@@ -1,6 +1,11 @@
 # Evendroid
 Evendroidはイベント支援サイトATND betaの専用ブラウザです。
 
+# 依存関係
+
+* [Droibit4a](https://github.com/droibit/Droibit4a)
+* [EventServiceClient4a](https://github.com/droibit/EventServiceClient4a)
+
 # License
 
     The MIT License (MIT)

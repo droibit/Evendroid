@@ -55,7 +55,7 @@
             android:text="@android:string/ok"
             android:textSize="@dimen/material_textsize_large"
             android:textColor="@color/theme_default_text_primary"
-            android:background="?android:attr/selectableItemBackground" />
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:text="@string/startup_create_account"
             android:textSize="@dimen/material_textsize_medium"
             android:textColor="@color/theme_default_text_secondary"
-            android:background="?android:attr/selectableItemBackground" />
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 

@@ -111,7 +111,7 @@ public class StartupFragment extends Fragment
         pref.edit()
                 .putBoolean(KEY_FINISHED_START_UP, true)
                 .putString(getString(R.string.pref_key_atnd_user_name), mTextAccountName.getText().toString())
-                .commit();
+                .apply();
 
         // ログインが終わったのでメイン画面を表示する。
         startActivity(new Intent(getActivity(), MainActivity.class));

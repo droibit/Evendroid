@@ -207,7 +207,6 @@ public class EventListFragment extends LoadableListFragment
         }
 
         // 設定画面から戻ってきた後更新された時のために確認する
-        // TODO: 設定するユーザ名を切り分けるかどうか？
         if (!mAction.hasCondition()) {
             final IParameterKey key = getConditionParameterKey();
             mAction.setCondition(new RefreshAction.Condition(key, user));
