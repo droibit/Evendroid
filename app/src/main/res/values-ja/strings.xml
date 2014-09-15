@@ -12,7 +12,6 @@
     <string name="navigation_title_bookmark">ブックマーク</string>
 
     <!-- メニュー -->
-    <string name="action_example">Example action</string>
     <string name="action_search">@string/navigation_title_search</string>
     <string name="action_bookmark">@string/navigation_title_bookmark</string>
     <string name="action_schedule">カレンダーに追加</string>
@@ -24,14 +23,11 @@
     <string name="toast_not_find_results">検索したイベントが見つかりませんでした</string>
     <string name="toast_failed_to_search_event">イベントの検索に失敗しました</string>
     <string name="toast_failed_to_fetch_event">イベントの読み込みに失敗しました</string>
-    <string name="toast_not_exist_events">更新するイベントがありません</string>
     <string name="toast_not_exist_username">設定からユーザ名を入力して下さい</string>
     <string name="toast_successfull_added_bookmark">ブックマークしました</string>
-    <string name="toast_failed_to_add_bookmark">ブックマークに失敗しました</string>
     <string name="toast_successfull_remove_bookmark">ブックマークを削除しました</string>
     <string name="toast_failed_to_remove_bookmark">ブックマークの削除に失敗しました</string>
     <string name="toast_failed_to_connect_network"> インターネットの接続に失敗しました。接続してから再検索して下さい。</string>
-    <string name="toast_not_exist_participant">参加者はいません</string>
 
     <!-- ヘッダ -->
     <string name="event_search_list_header">検索結果なし</string>
@@ -55,7 +51,6 @@
     <string name="event_detail_participants">%1$d/%2$d</string>
     <string name="event_detail_section_summary">概要</string>
     <string name="event_detail_section_users">参加者</string>
-    <string name="event_detail_section_owner">主催者</string>
     <string name="event_detail_item_web_page">詳細ページへ</string>
     <string name="event_detail_item_owner_event">主催イベント一覧</string>
 
@@ -67,7 +62,6 @@
     <string name="startup_dialog_content_create_account">ATND サイトよりアカウントを作成してから、\nアカウント名を入力して下さい</string>
 
     <!-- プレファレンス -->
-    <string name="pref_header_general">全般</string>
     <string name="pref_header_event">イベント</string>
     <string name="pref_header_contact">コンタクト</string>
     <string name="pref_header_about_app">Evendroidについて</string>
@@ -89,7 +83,6 @@
     <string name="pref_about_app_category">アプリ</string>
     <string name="pref_about_app_build_version_title">ビルドバージョン</string>
     <string name="pref_about_app_change_log_title">最新情報</string>
-    <string name="pref_about_app_change_log_summary">アプリの変更点</string>
     <string name="pref_about_app_open_souce_license_title">オープンソースライセンス</string>
     <string name="pref_about_app_share_title">アプリの共有</string>
 

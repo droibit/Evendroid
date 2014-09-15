@@ -15,27 +15,22 @@
     <string name="navigation_title_bookmark">Bookmark</string>
 
     <!-- メニュー -->
-    <string name="action_example">Example action</string>
     <string name="action_search">@string/navigation_title_search</string>
     <string name="action_bookmark">@string/navigation_title_bookmark</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_share">Share</string>
     <string name="action_schedule">Add Schedule</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- トースト -->
     <string name="toast_not_find_results">Did not find the event that search</string>
     <string name="toast_failed_to_search_event">Failed to search for events</string>
     <string name="toast_failed_to_fetch_event">Failed to fetch for event</string>
-    <string name="toast_not_exist_events">Event to update does not exist</string>
     <string name="toast_not_exist_username">Please enter your user name from the settings</string>
     <string name="toast_successfull_added_bookmark">Successful bookmark</string>
-    <string name="toast_failed_to_add_bookmark">Failed bookmark</string>
     <string name="toast_successfull_remove_bookmark">Successful remove the bookmark</string>
     <string name="toast_failed_to_remove_bookmark">Failed to remove the bookmark</string>
     <string name="toast_failed_to_connect_network">You can not connect to the Internet</string>
-    <string name="toast_not_exist_participant">Dose not have any participant</string>
 
     <!-- ヘッダ -->
     <string name="event_search_list_header">No result</string>
@@ -59,7 +54,6 @@
     <string name="event_detail_participants">%1$d / %2$d</string>
     <string name="event_detail_section_summary">Summary</string>
     <string name="event_detail_section_users">Participants</string>
-    <string name="event_detail_section_owner">Owner</string>
     <string name="event_detail_item_web_page">More detail</string>
     <string name="event_detail_item_owner_event">Owner events</string>
 
