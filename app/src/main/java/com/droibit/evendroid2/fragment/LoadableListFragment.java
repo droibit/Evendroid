@@ -12,15 +12,15 @@ import android.widget.TextView;
 
 import com.droibit.app.fragment.LoadableFragment;
 import com.droibit.evendroid2.R;
-import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.contoller.ListableEventViewAdapter;
+import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.view.OnListItemClickListener;
 import com.droibit.eventservice.EventServiceClient;
 import com.droibit.widget.ToastManager;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
+import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +35,7 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
     protected EventServiceClient mClient;
     protected TextView mHeaderView;
     protected CallBacks mCallbacks;
+    protected boolean mExistsView;
 
     public LoadableListFragment() {
         // Required empty public constructor
@@ -72,6 +73,8 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
+
+        mExistsView = true;
     }
 
     /** {@inheritDoc} */
@@ -88,6 +91,14 @@ public class LoadableListFragment extends LoadableFragment implements OnListItem
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        mExistsView = false;
     }
 
     /** {@inheritDoc} */

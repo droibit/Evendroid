@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.android.volley.VolleyError;
-import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.SettingsActivity;
 import com.droibit.evendroid2.model.ListableEvent;
@@ -19,10 +18,13 @@ import com.droibit.eventservice.http.url.IParameterKey;
 import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
+import com.google.common.collect.Lists;
+
+import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
+import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 
 /**
  * 主催/参加イベントをリスト表示するための
@@ -52,9 +54,10 @@ public class EventListFragment extends LoadableListFragment
             mAction.onPostRefresh();
 
             // エラーが発生した場合はコンテンツを非表示にする
-            mAdapter.clear();
-            mAdapter.notifyDataSetChanged();
-            setContentShown(true);
+            if (mExistsView) {
+                mAdapter.clear();
+                setContentShownNoAnimation(true);
+            }
             // エラーメッセージを表示する。
             ToastManager.showShort(getActivity(), R.string.toast_failed_to_search_event);
         }
@@ -63,22 +66,26 @@ public class EventListFragment extends LoadableListFragment
         @Override
         public void onResponse(EventResponse listableEventResponse) {
             mAction.onPostRefresh();
-            mAdapter.clear();
+
+            // ビューが破棄されている場合は処理をスキップする。
+            if (!mExistsView) {
+                return;
+            }
 
             // レスポンスにイベント情報が存在しない場合
             if (!listableEventResponse.existsEvent()) {
-                mAdapter.notifyDataSetChanged();
+                mAdapter.clear();
                 setListHeaderContent(0);
                 setContentShown(true);
                 return;
             }
 
             final EventResponse.EventContainer[] responseEvents = listableEventResponse.events;
+            final List<ListableEvent> events = Lists.newArrayListWithCapacity(responseEvents.length);
             for (EventResponse.EventContainer eventContainer : responseEvents) {
-                mAdapter.add(new ListableEvent(eventContainer.event));
+                events.add(new ListableEvent(eventContainer.event));
             }
-            mAdapter.notifyDataSetChanged();
-
+            mAdapter.replace(events);
             setListHeaderContent(mAdapter.getEvents().size());
             setContentShown(true);
         }
@@ -149,7 +156,6 @@ public class EventListFragment extends LoadableListFragment
         } else {
             ToastManager.showShort(getActivity(), R.string.toast_not_exist_username);
         }
-
     }
 
     /** {@inheritDoc} */
@@ -183,7 +189,6 @@ public class EventListFragment extends LoadableListFragment
     public boolean onOptionsItemSelected(MenuItem item) {
         return mAction.onOptionsItemSelected(item);
     }
-
 
     /** {@inheritDoc} */
     @Override
