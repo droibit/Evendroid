@@ -52,9 +52,8 @@ public class PrefContactFragment extends PreferenceFragment implements
 			return true;
 		} else if (preference == mPrefContactGitHub) {
 			// GitHubのリポジトリページを表示する。
-//			final String googlePlusId = getString(R.string.google_plus_id);
-//			IntentHepler.launchBrowser(getActivity(),
-//					SnsHelper.uriForGooglePlusUser(googlePlusId));
+			final String github = getString(R.string.url_github_repository);
+			IntentHepler.launchBrowser(getActivity(), github);
 			return true;
 		} else if (preference == mPrefContactTwitter) {
 			// Twitterのプロフィールを表示する

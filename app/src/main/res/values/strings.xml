@@ -125,5 +125,6 @@
     <!-- Misc -->
     <string name="twitter_id">droibit</string>
     <string name="startup_create_account">Create ATND account</string>
+    <string name="url_github_repository">https://github.com/droibit/Evendroid</string>
 
 </resources>
