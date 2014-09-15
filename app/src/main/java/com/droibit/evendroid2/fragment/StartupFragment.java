@@ -1,6 +1,5 @@
 package com.droibit.evendroid2.fragment;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;

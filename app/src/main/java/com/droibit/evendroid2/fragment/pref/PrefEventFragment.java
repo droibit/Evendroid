@@ -9,9 +9,8 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.provider.SearchRecentSuggestions;
-import android.provider.SyncStateContract;
-import android.text.TextUtils;
 import android.provider.SyncStateContract.Columns;
+import android.text.TextUtils;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.SettingsActivity;
@@ -27,7 +26,6 @@ import org.jdeferred.FailCallback;
 import org.jdeferred.android.AndroidDeferredManager;
 import org.jdeferred.android.DeferredAsyncTask;
 
-import static android.app.SearchManager.SUGGEST_COLUMN_TEXT_1;
 import static com.droibit.evendroid2.contoller.RecentSuggestionsProvider.SEARCH_URI;
 
 /**
