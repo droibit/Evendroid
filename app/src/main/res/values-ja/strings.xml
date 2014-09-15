@@ -60,7 +60,7 @@
     <string name="event_detail_item_owner_event">主催イベント一覧</string>
 
     <!-- スタートアップ -->
-    <string name="startup_dialog_title_account">アカウント</string>
+    <string name="startup_dialog_title_account">案内</string>
     <string name="startup_dialog_content_guide_account">アカウントは設定から変更することもできます</string>
     <string name="startup_dialog_content_warning_account">アカウントが入力されていませんがよろしいですか？\n後で設定から入力することも\nできます</string>
     <string name="startup_dialog_title_create_account">アカウントの作成</string>
