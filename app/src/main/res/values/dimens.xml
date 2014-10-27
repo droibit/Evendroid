@@ -9,6 +9,8 @@
 
     <dimen name="material_list_icon_size">40dp</dimen>
     <dimen name="material_detail_icon_size">24dp</dimen>
+    <dimen name="material_small_icon_size">20dp</dimen>
+    <dimen name="material_navigation_side_edge">20dp</dimen>
     <dimen name="material_half_side_edge">8dp</dimen>
 
     <dimen name="list_item_title_height">47dp</dimen>
