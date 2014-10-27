@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.ListableEvent;
 import com.droibit.evendroid2.view.OnListItemClickListener;
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +43,7 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
      */
     public ListableEventViewAdapter(@NonNull Context context, @NonNull OnListItemClickListener listener, boolean showAvailableIcon) {
         mContext = context;
-        mEvents = Lists.newArrayList();
+        mEvents = new ArrayList<ListableEvent>();
         mListener = listener;
         mShowAvailableIcon = showAvailableIcon;
     }

@@ -15,8 +15,8 @@ import com.droibit.eventservice.events.atnd.EventResponse;
 import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -76,7 +76,7 @@ public class SearchListFragment extends LoadableListFragment
 
             // レスポンスからリスト表示するイベント群を作成する。
             final EventResponse.EventContainer[] responseEvents = listableEventResponse.events;
-            final List<ListableEvent> events = Lists.newArrayListWithCapacity(responseEvents.length);
+            final List<ListableEvent> events = new ArrayList<ListableEvent>(responseEvents.length);
             for (EventResponse.EventContainer eventContainer : responseEvents) {
                 events.add(new ListableEvent(eventContainer.event));
             }

@@ -18,8 +18,8 @@ import com.droibit.eventservice.http.url.IParameterKey;
 import com.droibit.network.Reachability;
 import com.droibit.utils.Debug;
 import com.droibit.widget.ToastManager;
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
@@ -81,7 +81,7 @@ public class EventListFragment extends LoadableListFragment
             }
 
             final EventResponse.EventContainer[] responseEvents = listableEventResponse.events;
-            final List<ListableEvent> events = Lists.newArrayListWithCapacity(responseEvents.length);
+            final List<ListableEvent> events = new ArrayList<ListableEvent>(responseEvents.length);
             for (EventResponse.EventContainer eventContainer : responseEvents) {
                 events.add(new ListableEvent(eventContainer.event));
             }

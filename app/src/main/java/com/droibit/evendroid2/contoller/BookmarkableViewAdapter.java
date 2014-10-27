@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.view.OnListItemClickListener;
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,7 +38,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
      */
     public BookmarkableViewAdapter(@NonNull Context context, @NonNull OnListItemClickListener listener) {
         mContext = context;
-        mEvents = Lists.newArrayList();
+        mEvents = new ArrayList<BookmarkableEvent>();
         mSelectedItems = new SparseBooleanArray();
         mListener = listener;
     }

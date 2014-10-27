@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent;
-import com.google.common.collect.Lists;
 import com.linearlistview.LinearListView;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class DetailedContainerViewAdapter extends RecyclerView.Adapter<DetailedC
      */
     public DetailedContainerViewAdapter(@NonNull Context context) {
         mContext = context;
-        mGroups = Lists.newArrayListWithCapacity(4);
+        mGroups = new ArrayList<DetailedEvent.Group>(4);
     }
 
     /** {@inheritDoc} */

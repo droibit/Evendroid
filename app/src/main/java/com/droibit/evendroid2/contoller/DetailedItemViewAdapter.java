@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedEvent.Item;
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +34,7 @@ public class DetailedItemViewAdapter extends BaseAdapter {
      */
     public DetailedItemViewAdapter(@NonNull Context context) {
         mContext = context;
-        mItems = Lists.newArrayList();
+        mItems = new ArrayList<Item>();
     }
 
     /** {@inheritDoc} */

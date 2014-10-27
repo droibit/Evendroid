@@ -21,12 +21,12 @@ import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.view.OnListItemClickListener;
-import com.google.common.collect.Lists;
 
 import org.jdeferred.DoneCallback;
 import org.jdeferred.android.AndroidDeferredManager;
 import org.jdeferred.android.DeferredAsyncTask;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -203,8 +203,8 @@ public class BookmarkListFragment extends LoadableFragment
             return;
         }
 
-        final List<BookmarkableEvent> newEvents = Lists.newArrayList(events);
-        final List<BookmarkableEvent> oldEvents = Lists.newArrayList(mAdapter.getEvents());
+        final List<BookmarkableEvent> newEvents = new ArrayList<BookmarkableEvent>(events);
+        final List<BookmarkableEvent> oldEvents = new ArrayList<BookmarkableEvent>(mAdapter.getEvents());
         if (newEvents.size() != oldEvents.size()) {
             // ブックマーク数が増減した場合はリストの内容を入れ替える。
             mAdapter.replace(newEvents);
