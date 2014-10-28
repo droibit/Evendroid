@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +22,6 @@ import android.widget.ListView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.contoller.NavigationViewAdapter;
-import com.droibit.utils.EnvironmentInfo;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -49,7 +48,6 @@ public class NavigationDrawerFragment extends Fragment {
                 }
             }
             throw new IllegalArgumentException();
-
         }
     }
 
@@ -208,7 +206,7 @@ public class NavigationDrawerFragment extends Fragment {
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the navigation drawer and the action bar app icon.
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(),
-                mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+                mDrawerLayout, R.drawable.ic_drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
