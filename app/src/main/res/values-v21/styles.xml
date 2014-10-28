@@ -4,6 +4,7 @@
     <style name="DefaultAppTheme" parent="android:style/Theme.Material.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="android:actionBarStyle">@style/MaterialActionBar</item>
+        <item name="android:actionBarWidgetTheme">@style/MaterialActionBarWidget</item>
         <item name="android:actionMenuTextColor">@color/theme_default_text_primary</item>
         <item name="android:actionOverflowButtonStyle">@style/ActionBarOverFlowButton</item>
         <item name="android:colorPrimary">@color/theme_default_primary</item>
@@ -16,6 +17,15 @@
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
         <item name="android:icon">@android:color/transparent</item>
         <item name="drawerArrowStyle">@style/DrawerArrowToggle</item>
+    </style>
+
+    <!-- ActionBar Widget -->
+    <style name="MaterialActionBarWidget" parent="android:Theme.Material">
+        <item name="android:autoCompleteTextViewStyle">@android:style/Widget.Material.Light.AutoCompleteTextView</item>
+        <item name="android:popupMenuStyle">@android:style/Widget.Material.Light.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@android:style/Widget.Material.Light.ListView.DropDown</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/white</item>
     </style>
     
     <style name="DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
