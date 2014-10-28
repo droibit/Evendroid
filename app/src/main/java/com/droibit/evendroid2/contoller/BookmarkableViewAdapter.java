@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.BookmarkableEvent;
-import com.droibit.evendroid2.view.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnEventItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
     private final Context mContext;
     private final List<BookmarkableEvent> mEvents;
     private final SparseBooleanArray mSelectedItems;
-    private final OnListItemClickListener mListener;
+    private final OnEventItemClickListener mListener;
 
     /**
      * コンストラクタ
@@ -36,7 +36,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
      * @param context コンテキスト
      * @param listener クリックイベントリスナ
      */
-    public BookmarkableViewAdapter(@NonNull Context context, @NonNull OnListItemClickListener listener) {
+    public BookmarkableViewAdapter(@NonNull Context context, @NonNull OnEventItemClickListener listener) {
         mContext = context;
         mEvents = new ArrayList<BookmarkableEvent>();
         mSelectedItems = new SparseBooleanArray();
@@ -47,7 +47,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(mContext);
-        final View view = inflater.inflate(R.layout.recycler_item_list, parent, false);
+        final View view = inflater.inflate(R.layout.recycler_item_event, parent, false);
         return new ViewHolder(view);
     }
 

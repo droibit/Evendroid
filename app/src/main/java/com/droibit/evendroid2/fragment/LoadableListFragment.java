@@ -14,7 +14,7 @@ import com.droibit.app.fragment.LoadableFragment;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.contoller.ListableEventViewAdapter;
 import com.droibit.evendroid2.model.IListableEvent;
-import com.droibit.evendroid2.view.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnEventItemClickListener;
 import com.droibit.eventservice.EventServiceClient;
 import com.droibit.widget.ToastManager;
 
@@ -28,7 +28,7 @@ import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigatio
  * {@link LoadableListFragment.CallBacks} interface
  * to handle interaction events.
  */
-public class LoadableListFragment extends LoadableFragment implements OnListItemClickListener {
+public class LoadableListFragment extends LoadableFragment implements OnEventItemClickListener {
 
     protected RecyclerView mRecyclerView;
     protected ListableEventViewAdapter mAdapter;

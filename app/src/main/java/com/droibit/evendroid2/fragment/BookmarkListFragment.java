@@ -20,7 +20,7 @@ import com.droibit.evendroid2.contoller.BookmarkableViewAdapter;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.evendroid2.model.IListableEvent;
-import com.droibit.evendroid2.view.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnEventItemClickListener;
 
 import org.jdeferred.DoneCallback;
 import org.jdeferred.android.AndroidDeferredManager;
@@ -41,7 +41,7 @@ import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigatio
  * @since 2014/09/03.
  */
 public class BookmarkListFragment extends LoadableFragment
-        implements OnListItemClickListener, OkCancelDialogFragment.OnDialogAskListener {
+        implements OnEventItemClickListener, OkCancelDialogFragment.OnDialogAskListener {
 
     private RecyclerView mRecyclerView;
     private TextView mHeaderView;
@@ -220,8 +220,6 @@ public class BookmarkListFragment extends LoadableFragment
             }
         }
         setListHeaderContent(mAdapter.count());
-
-        //setContentShown(true);
     }
 
     private void setListHeaderContent(int bookmarkCount) {

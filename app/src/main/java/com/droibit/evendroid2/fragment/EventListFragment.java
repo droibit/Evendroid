@@ -86,7 +86,7 @@ public class EventListFragment extends LoadableListFragment
                 events.add(new ListableEvent(eventContainer.event));
             }
             mAdapter.replace(events);
-            setListHeaderContent(mAdapter.getEvents().size());
+            setListHeaderContent(mAdapter.getItemCount());
             setContentShown(true);
         }
     };

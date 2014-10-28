@@ -3,12 +3,12 @@ package com.droibit.evendroid2.view;
 import com.droibit.evendroid2.model.IListableEvent;
 
 /**
- * イベントのリストがクリックされた時に呼ばれるイベントリスナー。
+ * リスト内のイベントがクリックされた時に呼ばれるイベントリスナー。
  *
  * @author kumagai
  * @since 2014/09/03.
  */
-public interface OnListItemClickListener {
+public interface OnEventItemClickListener {
 
     /**
      * イベント項目がクリックされた時に呼ばれる。

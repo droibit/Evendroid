@@ -9,7 +9,7 @@ import com.droibit.text.Strings;
 import java.util.Date;
 
 /**
- * イベントをリスト上に表示する際の情報を保持するためのクラス。
+ * イベントをリスト表示する情報を保持するクラス。
  *
  * @author kumagai
  * @since 2014/09/02

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.model.ListableEvent;
-import com.droibit.evendroid2.view.OnListItemClickListener;
+import com.droibit.evendroid2.view.OnEventItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
 
     private final Context mContext;
     private final List<ListableEvent> mEvents;
-    private final OnListItemClickListener mListener;
+    private final OnEventItemClickListener mListener;
     private final boolean mShowAvailableIcon;
 
     /**
@@ -41,7 +41,7 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
      * @param listener クリックイベントリスナ
      * @param showAvailableIcon リストにアイコンを表示するかどうか
      */
-    public ListableEventViewAdapter(@NonNull Context context, @NonNull OnListItemClickListener listener, boolean showAvailableIcon) {
+    public ListableEventViewAdapter(@NonNull Context context, @NonNull OnEventItemClickListener listener, boolean showAvailableIcon) {
         mContext = context;
         mEvents = new ArrayList<ListableEvent>();
         mListener = listener;
@@ -55,9 +55,9 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
 
         final View view;
         if (viewType == VIEW_TYPE_ICONIFIED_TEXT) {
-            view = inflater.inflate(R.layout.recycler_item_iconified_list, parent, false);
+            view = inflater.inflate(R.layout.recycler_item_iconified_event, parent, false);
         } else {
-            view = inflater.inflate(R.layout.recycler_item_list, parent, false);
+            view = inflater.inflate(R.layout.recycler_item_event, parent, false);
         }
         return new ViewHolder(view);
     }
