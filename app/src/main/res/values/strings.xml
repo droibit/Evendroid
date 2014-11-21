@@ -26,6 +26,7 @@
     <string name="toast_not_find_results">Did not find the event that search</string>
     <string name="toast_failed_to_search_event">Failed to search for events</string>
     <string name="toast_failed_to_fetch_event">Failed to fetch for event</string>
+    <string name="toast_failed_to_fetch_user">Failed to fetch for user</string>
     <string name="toast_not_exist_username">Please enter your user name from the settings</string>
     <string name="toast_successfull_added_bookmark">Successful bookmark</string>
     <string name="toast_successfull_remove_bookmark">Successful remove the bookmark</string>
@@ -40,6 +41,8 @@
     <string name="event_participation_list_header">@string/event_owner_list_header</string>
     <string name="event_bookmark_list_empty_header">None bookmarks</string>
     <string name="event_bookmark_list_header">%1$d Bookmarks</string>
+    <string name="event_user_list_empty_header">None users</string>
+    <string name="event_user_list_header">%1$d users</string>
 
     <!-- ダイアログ -->
     <string name="dialog_titile_remove_bookmark_event">Remove bookmark</string>

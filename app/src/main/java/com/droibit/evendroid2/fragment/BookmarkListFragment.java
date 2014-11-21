@@ -20,13 +20,13 @@ import com.droibit.evendroid2.contoller.BookmarkableViewAdapter;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.evendroid2.model.IListableEvent;
-import com.droibit.evendroid2.view.OnListItemClickListener;
-import com.google.common.collect.Lists;
+import com.droibit.evendroid2.view.OnEventItemClickListener;
 
 import org.jdeferred.DoneCallback;
 import org.jdeferred.android.AndroidDeferredManager;
 import org.jdeferred.android.DeferredAsyncTask;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -41,7 +41,7 @@ import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigatio
  * @since 2014/09/03.
  */
 public class BookmarkListFragment extends LoadableFragment
-        implements OnListItemClickListener, OkCancelDialogFragment.OnDialogAskListener {
+        implements OnEventItemClickListener, OkCancelDialogFragment.OnDialogAskListener {
 
     private RecyclerView mRecyclerView;
     private TextView mHeaderView;
@@ -203,8 +203,8 @@ public class BookmarkListFragment extends LoadableFragment
             return;
         }
 
-        final List<BookmarkableEvent> newEvents = Lists.newArrayList(events);
-        final List<BookmarkableEvent> oldEvents = Lists.newArrayList(mAdapter.getEvents());
+        final List<BookmarkableEvent> newEvents = new ArrayList<BookmarkableEvent>(events);
+        final List<BookmarkableEvent> oldEvents = new ArrayList<BookmarkableEvent>(mAdapter.getEvents());
         if (newEvents.size() != oldEvents.size()) {
             // ブックマーク数が増減した場合はリストの内容を入れ替える。
             mAdapter.replace(newEvents);
@@ -220,8 +220,6 @@ public class BookmarkListFragment extends LoadableFragment
             }
         }
         setListHeaderContent(mAdapter.count());
-
-        //setContentShown(true);
     }
 
     private void setListHeaderContent(int bookmarkCount) {

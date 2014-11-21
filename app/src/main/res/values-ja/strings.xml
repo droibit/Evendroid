@@ -23,6 +23,7 @@
     <string name="toast_not_find_results">検索したイベントが見つかりませんでした</string>
     <string name="toast_failed_to_search_event">イベントの検索に失敗しました</string>
     <string name="toast_failed_to_fetch_event">イベントの読み込みに失敗しました</string>
+    <string name="toast_failed_to_fetch_user">参加者の読み込みに失敗しました</string>
     <string name="toast_not_exist_username">設定からユーザ名を入力して下さい</string>
     <string name="toast_successfull_added_bookmark">ブックマークしました</string>
     <string name="toast_successfull_remove_bookmark">ブックマークを削除しました</string>
@@ -37,6 +38,8 @@
     <string name="event_participation_list_header">@string/event_owner_list_header</string>
     <string name="event_bookmark_list_empty_header">ブックマークなし</string>
     <string name="event_bookmark_list_header">%1$d件</string>
+    <string name="event_user_list_empty_header">参加者なし</string>
+    <string name="event_user_list_header">%1$d ユーザ</string>
 
     <!-- ダイアログ -->
     <string name="dialog_titile_remove_bookmark_event">ブックマークの削除</string>

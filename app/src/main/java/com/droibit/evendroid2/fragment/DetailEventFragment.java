@@ -202,7 +202,11 @@ public class DetailEventFragment extends LoadableFragment
     /** {@inheritDoc} */
     @Override
     public void onTransitionUsers(String eventId) {
-
+        final UserListFragment f = UserListFragment.newInstance(eventId);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, f)
+                .addToBackStack(null)
+                .commit();
     }
 
     /** {@inheritDoc} */
