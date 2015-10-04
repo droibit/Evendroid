@@ -116,7 +116,7 @@ public class EventListFragment extends LoadableListFragment
      * @param owner 主催者名
      * @return 新しいフラグメントのインスタンス
      */
-    public static final EventListFragment newOwerEventListFragment(String owner) {
+    public static final EventListFragment newOwnerEventListFragment(String owner) {
         final EventListFragment f = new EventListFragment();
 
         final Bundle args = new Bundle(4);

@@ -211,7 +211,7 @@ public class DetailEventFragment extends LoadableFragment
     /** {@inheritDoc} */
     @Override
     public void onTransitionOwnerEvents(String owner) {
-        final EventListFragment f = EventListFragment.newOwerEventListFragment(owner);
+        final EventListFragment f = EventListFragment.newOwnerEventListFragment(owner);
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, f)
                 .addToBackStack(null)
