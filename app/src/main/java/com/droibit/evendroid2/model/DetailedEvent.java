@@ -31,7 +31,6 @@ import static java.util.Calendar.YEAR;
 
 /**
  * @author kumagai
- * @since 2014/09/03.
  */
 public class DetailedEvent {
 

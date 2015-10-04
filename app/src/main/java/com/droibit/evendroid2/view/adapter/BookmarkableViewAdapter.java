@@ -21,7 +21,6 @@ import java.util.List;
  * ActionModeを使用したかったため、クラスを分けている。
  *
  * @author kumagai
- * @since 2014/09/02
  */
 public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableViewAdapter.ViewHolder> {
 
@@ -38,7 +37,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
      */
     public BookmarkableViewAdapter(@NonNull Context context, @NonNull OnEventItemClickListener listener) {
         mContext = context;
-        mEvents = new ArrayList<BookmarkableEvent>();
+        mEvents = new ArrayList<>();
         mSelectedItems = new SparseBooleanArray();
         mListener = listener;
     }
@@ -95,8 +94,7 @@ public class BookmarkableViewAdapter extends RecyclerView.Adapter<BookmarkableVi
      * @return  削除した項目のインデックス
      */
     public void remove(BookmarkableEvent event) {
-        final BookmarkableEvent bookmark = (BookmarkableEvent) event;
-        final int position = mEvents.indexOf(bookmark);
+        final int position = mEvents.indexOf(event);
         if (position != -1) {
             mEvents.remove(position);
             notifyItemRemoved(position);

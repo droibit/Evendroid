@@ -12,11 +12,8 @@ import java.util.List;
  * SQLiteを操作し、データを取得するためのクラス。
  *
  * @author kumagai
- * @since 2014/09/03
  */
 public class DatabaseManager {
-
-    private static final DatabaseManager INSTANCE = new DatabaseManager();
 
     private DatabaseManager() {
     }
@@ -75,14 +72,5 @@ public class DatabaseManager {
      */
     public static void clearBookmarks() {
         new Delete().from(BookmarkableEvent.class).execute();
-    }
-
-    /**
-     * シングルトンインスタンスを取得する。
-     *
-     * @return シングルトンインスタンス
-     */
-    public static final DatabaseManager getInstance() {
-        return INSTANCE;
     }
 }

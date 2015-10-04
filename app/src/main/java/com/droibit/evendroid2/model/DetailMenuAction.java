@@ -15,7 +15,6 @@ import java.util.Calendar;
 
 /**
  * @author kumagai
- * @since 2014/09/03.
  */
 public class DetailMenuAction extends RefreshAction {
 

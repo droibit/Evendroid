@@ -42,7 +42,6 @@ import static android.app.SearchManager.SUGGEST_COLUMN_TEXT_1;
  * {@link SearchView}を使用してイベント検索を行うためのクラス。
  *
  * @author kumagai
- * @since 2014/09/02
  */
 public class SearchAction implements SearchView.OnQueryTextListener,
         SearchView.OnSuggestionListener, View.OnFocusChangeListener {

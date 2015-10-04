@@ -20,7 +20,6 @@ import java.util.List;
  * {@link ListableUser}クラスの情報をビューに設定するためのアダプタ。
  *
  * @author kumagai
- * @since 2014/10/28
  */
 public class ListableUserViewAdapter extends RecyclerView.Adapter<ListableUserViewAdapter.ViewHolder> {
 
@@ -36,7 +35,7 @@ public class ListableUserViewAdapter extends RecyclerView.Adapter<ListableUserVi
      */
     public ListableUserViewAdapter(@NonNull Context context, @NonNull OnUserItemClickListener listener) {
         mContext = context;
-        mUsers = new ArrayList<ListableUser>();
+        mUsers = new ArrayList<>();
         mListener = listener;
     }
 

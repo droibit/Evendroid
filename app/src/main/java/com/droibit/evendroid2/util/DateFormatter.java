@@ -14,13 +14,12 @@ import java.util.Date;
  * レスポンスの日付を整形するためのクラス。
  *
  * @author kumagai
- * @since 2014/09/02
  */
 public final class DateFormatter {
 
     private static final DateFormat SRC_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sssZ");
-    private static final DateFormat DEST_SHORT_DATE_FORMART = new SimpleDateFormat("yy/MM/dd");
-    private static final DateFormat DEST_LONG_DATE_FORMART = new SimpleDateFormat("yy/MM/dd(E) HH:mm");
+    private static final DateFormat DEST_SHORT_DATE_FORMAT = new SimpleDateFormat("yy/MM/dd");
+    private static final DateFormat DEST_LONG_DATE_FORMAT = new SimpleDateFormat("yy/MM/dd(E) HH:mm");
     private static final DateFormat DEST_LONG_DATE_WITHOUT_YEAR_FORMART = new SimpleDateFormat("MM/dd(E) HH:mm");
     private static final DateFormat DEST_TIME_FORMAT = new SimpleDateFormat("HH:mm");
 
@@ -38,9 +37,8 @@ public final class DateFormatter {
         Date srcDate = null;
         try {
             srcDate = SRC_DATE_FORMAT.parse(dateString);
-            return DEST_SHORT_DATE_FORMART.format(srcDate);
+            return DEST_SHORT_DATE_FORMAT.format(srcDate);
         } catch (ParseException e) {
-            e.printStackTrace();
         }
         return Strings.EMPTY;
     }
@@ -55,7 +53,7 @@ public final class DateFormatter {
         if (date == null) {
             return Strings.EMPTY;
         }
-        return DEST_SHORT_DATE_FORMART.format(date);
+        return DEST_SHORT_DATE_FORMAT.format(date);
     }
 
     /**
@@ -68,7 +66,7 @@ public final class DateFormatter {
         if (date == null) {
             return Strings.EMPTY;
         }
-        return DEST_LONG_DATE_FORMART.format(date);
+        return DEST_LONG_DATE_FORMAT.format(date);
     }
 
     /**
@@ -112,7 +110,6 @@ public final class DateFormatter {
         try {
             return SRC_DATE_FORMAT.parse(dateString);
         } catch (ParseException e) {
-            e.printStackTrace();
         }
         return null;
     }

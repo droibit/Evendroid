@@ -30,7 +30,6 @@ import com.droibit.widget.ToastManager;
  * イベントの詳細情報を表示するためのフラグメント。
  *
  * @author kumagai
- * @since 2014/09/03.
  */
 public class DetailEventFragment extends LoadableFragment
         implements DetailMenuAction.OnRefreshActionListener, OnTransitionListener {

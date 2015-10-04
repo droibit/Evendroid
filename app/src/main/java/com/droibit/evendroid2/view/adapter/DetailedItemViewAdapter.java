@@ -20,7 +20,6 @@ import java.util.List;
  * {@link DetailedEvent.Item}の情報をビューに表示するためのアダプタ。
  *
  * @author kumagai
- * @since 2014/09/06.
  */
 public class DetailedItemViewAdapter extends BaseAdapter {
 

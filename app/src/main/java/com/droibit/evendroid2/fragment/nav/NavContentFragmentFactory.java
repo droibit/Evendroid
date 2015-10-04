@@ -8,13 +8,12 @@ import com.droibit.evendroid2.fragment.SearchListFragment;
 
 import static com.droibit.evendroid2.fragment.EventListFragment.EVENT_TYPE_OWNER;
 import static com.droibit.evendroid2.fragment.EventListFragment.EVENT_TYPE_PARTICIPATION;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
+import static com.droibit.evendroid2.fragment.nav.NavigationDrawerFragment.Navigations;
 
 /**
  * ナビゲーションに応じたフラグメントを作成するためのファクトリ。
  *
  * @author kumagai
- * @since 2014/09/03.
  */
 public final class NavContentFragmentFactory {
 

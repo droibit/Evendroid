@@ -1,4 +1,4 @@
-package com.droibit.evendroid2.fragment;
+package com.droibit.evendroid2.fragment.nav;
 
 
 import android.app.ActionBar;
@@ -33,11 +33,11 @@ public class NavigationDrawerFragment extends Fragment {
     /**
      * ナビゲーションの種類を定義するための列挙体。
      */
-    public static enum Navigations {
+    public enum Navigations {
         SEARCH(0), OWNER(1), PARTICIPATION(2), BOOKMARK(3);
 
         private final int mOrder;
-        private Navigations(int order) {
+        Navigations(int order) {
             this.mOrder = order;
         }
 
@@ -281,7 +281,7 @@ public class NavigationDrawerFragment extends Fragment {
     /**
      * Callbacks interface that all activities using this fragment must implement.
      */
-    public static interface NavigationDrawerCallbacks {
+    public interface NavigationDrawerCallbacks {
         /**
          * Called when an item in the navigation drawer is selected.
          */

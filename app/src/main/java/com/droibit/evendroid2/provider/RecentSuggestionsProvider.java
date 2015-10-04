@@ -11,7 +11,6 @@ import static android.app.SearchManager.SUGGEST_URI_PATH_QUERY;
  * 直前の検索結果をサジェストとして表示するためのコンテンツプロバイダ。
  *
  * @author kumagai
- * @since 2014/09/10.
  */
 public class RecentSuggestionsProvider extends SearchRecentSuggestionsProvider {
 

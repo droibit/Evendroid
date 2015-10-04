@@ -15,7 +15,6 @@ import com.droibit.evendroid2.R;
  * ナビゲーション項目をビューに設定するためのアダプタ。
  *
  * @author kumagai
- * @since 2014/09/05.
  */
 public class NavigationViewAdapter extends ArrayAdapter<NavigationViewAdapter.Item> {
 

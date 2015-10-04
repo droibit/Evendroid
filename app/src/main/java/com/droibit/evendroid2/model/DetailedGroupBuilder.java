@@ -18,10 +18,9 @@ import com.droibit.widget.ToastManager;
 import java.util.List;
 
 /**
- * フラグメントに表示するための{@link com.droibit.evendroid2.model.DetailedEvent.Group}を構築するためのクラス。
+ * フラグメントに表示するための{@link DetailedEvent.Group}を構築するためのクラス。
  *
  * @author kumagai
- * @since 2014/09/03.
  */
 public final class DetailedGroupBuilder {
 

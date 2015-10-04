@@ -20,7 +20,6 @@ import java.util.List;
  * {@link DetailedEvent.Group}の情報をビューに表示するためのアダプタ。
  *
  * @author kumagai
- * @since 2014/09/06.
  */
 public class DetailedContainerViewAdapter extends RecyclerView.Adapter<DetailedContainerViewAdapter.ViewHolder> {
 
@@ -34,7 +33,7 @@ public class DetailedContainerViewAdapter extends RecyclerView.Adapter<DetailedC
      */
     public DetailedContainerViewAdapter(@NonNull Context context) {
         mContext = context;
-        mGroups = new ArrayList<DetailedEvent.Group>(4);
+        mGroups = new ArrayList<>(4);
     }
 
     /** {@inheritDoc} */

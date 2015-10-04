@@ -6,7 +6,6 @@ import com.droibit.evendroid2.model.ListableUser;
  * リスト内の参加者がクリックされた時に呼ばれるイベントリスナー。
  *
  * @author kumagai
- * @since 2014/10/28
  */
 public interface OnUserItemClickListener {
 

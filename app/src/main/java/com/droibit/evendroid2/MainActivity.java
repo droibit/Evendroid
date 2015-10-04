@@ -13,10 +13,10 @@ import android.view.MenuItem;
 
 import com.droibit.evendroid2.fragment.LoadableListFragment;
 import com.droibit.evendroid2.fragment.nav.NavContentFragmentFactory;
-import com.droibit.evendroid2.fragment.NavigationDrawerFragment;
+import com.droibit.evendroid2.fragment.nav.NavigationDrawerFragment;
 import com.droibit.utils.EnvironmentInfo;
 
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
+import static com.droibit.evendroid2.fragment.nav.NavigationDrawerFragment.Navigations;
 import static com.droibit.evendroid2.StartupActivity.KEY_FINISHED_START_UP;
 
 /**

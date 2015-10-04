@@ -4,7 +4,6 @@ package com.droibit.evendroid2.view;
  * 詳細項目をクリック後、画面遷移する際に呼ばれるイベントリスナー。
  *
  * @author kumagai
- * @since 2014/09/08.
  */
 public interface OnTransitionListener {
 

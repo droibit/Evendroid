@@ -24,7 +24,6 @@ import java.util.List;
  * 参加者のアカウント情報を選択するためのダイアログ。
  *
  * @author kumagai
- * @since 2014/10/28
  */
 public class AccountDialogFragment extends DialogFragment implements DialogInterface.OnClickListener {
 

@@ -35,7 +35,6 @@ import java.util.List;
  * イベントの参加者を表示する目のフラグメント。
  *
  * @author kumagai
- * @since 2014/10/28
  */
 public class UserListFragment extends LoadableFragment implements OnUserItemClickListener {
 

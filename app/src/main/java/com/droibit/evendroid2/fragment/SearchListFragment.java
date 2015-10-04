@@ -22,13 +22,12 @@ import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
 import static com.droibit.evendroid2.view.adapter.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
+import static com.droibit.evendroid2.fragment.nav.NavigationDrawerFragment.Navigations;
 
 /**
  * イベントを検索するためのフラグメント。
  *
  * @author kumagai
- * @since 2014/09/02
  */
 public class SearchListFragment extends LoadableListFragment
         implements SearchAction.OnSearchActionListener {

@@ -11,7 +11,6 @@ import com.droibit.evendroid2.fragment.StartupFragment;
  * 初回起動時にアカウントを設定するためのアクティビティ。
  *
  * @author kumagai
- * @since 2014/09/12
  */
 public class StartupActivity extends Activity {
 

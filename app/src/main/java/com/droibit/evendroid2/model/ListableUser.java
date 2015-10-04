@@ -10,7 +10,6 @@ import java.io.Serializable;
  * 参加者をリスト表示する情報を保持するクラス。
  *
  * @author kumagai
- * @since 2014/10/28
  */
 public class ListableUser implements Comparable<ListableUser>, Serializable {
 

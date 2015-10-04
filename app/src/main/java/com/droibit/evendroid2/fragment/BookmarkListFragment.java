@@ -12,9 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.droibit.app.fragment.LoadableFragment;
-import com.droibit.app.fragment.dialog.DialogFramgentInfo;
+import com.droibit.app.fragment.dialog.DialogFragmentInfo;
 import com.droibit.app.fragment.dialog.OkCancelDialogFragment;
-import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.view.adapter.BookmarkableViewAdapter;
 import com.droibit.evendroid2.model.BookmarkableEvent;
@@ -32,13 +31,12 @@ import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
 import static com.droibit.evendroid2.fragment.LoadableListFragment.CallBacks;
-import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
+import static com.droibit.evendroid2.fragment.nav.NavigationDrawerFragment.Navigations;
 
 /**
  * ブックマークした情報をリスト表示するためのクラス。
  *
  * @author kumagai
- * @since 2014/09/03.
  */
 public class BookmarkListFragment extends LoadableFragment
         implements OnEventItemClickListener, OkCancelDialogFragment.OnDialogAskListener {
@@ -72,7 +70,6 @@ public class BookmarkListFragment extends LoadableFragment
             mCallbacks = (CallBacks) activity;
 
             // アクションバーのタイトルをナビゲーションに合わせる。
-            final MainActivity mainActivity = (MainActivity) activity;
             mCallbacks.onApplyActionBarTitle(Navigations.BOOKMARK);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
@@ -145,7 +142,7 @@ public class BookmarkListFragment extends LoadableFragment
     public void onItemLongClick(IListableEvent event) {
         mSelectedBookmark = event;
 
-        final DialogFramgentInfo info = new DialogFramgentInfo(R.string.dialog_titile_remove_bookmark_event,
+        final DialogFragmentInfo info = new DialogFragmentInfo(R.string.dialog_titile_remove_bookmark_event,
                                                                R.string.dialog_content_remove_bookmark_event);
         final OkCancelDialogFragment f = OkCancelDialogFragment.newInstance(info);
         f.show(this);

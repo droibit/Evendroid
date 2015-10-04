@@ -12,7 +12,6 @@ import java.util.Date;
  * イベントをリスト表示する情報を保持するクラス。
  *
  * @author kumagai
- * @since 2014/09/02
  */
 public class ListableEvent implements IListableEvent, Comparable<ListableEvent> {
 

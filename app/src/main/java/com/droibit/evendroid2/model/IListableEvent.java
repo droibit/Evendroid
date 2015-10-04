@@ -4,7 +4,6 @@ package com.droibit.evendroid2.model;
  * イベントをリスト上に表示するためのインターフェース.
  *
  * @author kumagai
- * @since 2014/09/05
  */
 public interface IListableEvent {
     /**

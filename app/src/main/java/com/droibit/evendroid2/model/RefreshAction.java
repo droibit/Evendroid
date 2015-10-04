@@ -19,7 +19,6 @@ import com.droibit.eventservice.http.url.RequestContents;
  * メニューの更新処理を実行するためのクラス。
  *
  * @author kumagai
- * @since 2014/09/04.
  */
 public class RefreshAction {
 

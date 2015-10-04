@@ -43,7 +43,7 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
      */
     public ListableEventViewAdapter(@NonNull Context context, @NonNull OnEventItemClickListener listener, boolean showAvailableIcon) {
         mContext = context;
-        mEvents = new ArrayList<ListableEvent>();
+        mEvents = new ArrayList<>();
         mListener = listener;
         mShowAvailableIcon = showAvailableIcon;
     }
@@ -90,7 +90,6 @@ public class ListableEventViewAdapter extends RecyclerView.Adapter<ListableEvent
         mEvents.addAll(items);
         notifyDataSetChanged();
     }
-
 
     /**
      * イベント情報を全て削除する。

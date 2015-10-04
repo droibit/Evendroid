@@ -4,7 +4,6 @@ package com.droibit.evendroid2.view;
  * ナビゲーション項目がクリックされた時に呼ばれるイベントリスナー
  *
  * @author kumagai
- * @since 2014/09/05.
  */
 public interface OnNavItemClickListener {
 

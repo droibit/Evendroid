@@ -12,7 +12,6 @@ import com.droibit.text.Strings;
  * ブックマークしたイベントモデル。 ActiveAndroidを使用してDBからマッピングする
  *
  * @author kumagai
- * @since 2014/09/03
  */
 @Table(name = "bookmark")
 public class BookmarkableEvent extends Model implements IListableEvent, Comparable<BookmarkableEvent> {
@@ -58,12 +57,12 @@ public class BookmarkableEvent extends Model implements IListableEvent, Comparab
     /**
      * ブックマークの値を更新する
      *
-     * @param newBoomark 更新元のブックマーク
+     * @param newBookmark 更新元のブックマーク
      */
-    public void update(@NonNull BookmarkableEvent newBoomark) {
-        title = newBoomark.title;
-        startedAt = newBoomark.startedAt;
-        address = newBoomark.address;
+    public void update(@NonNull BookmarkableEvent newBookmark) {
+        title = newBookmark.title;
+        startedAt = newBookmark.startedAt;
+        address = newBookmark.address;
     }
 
     /** {@inheritDoc} */

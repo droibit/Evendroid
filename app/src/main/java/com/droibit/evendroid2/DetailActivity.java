@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import com.droibit.evendroid2.fragment.DetailEventFragment;
 import com.droibit.evendroid2.fragment.LoadableListFragment;
-import com.droibit.evendroid2.fragment.NavigationDrawerFragment;
+import com.droibit.evendroid2.fragment.nav.NavigationDrawerFragment;
 
 /**
  * イベントの詳細情報を表示するためのアクティビティ。

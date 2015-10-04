@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.droibit.app.fragment.dialog.DialogFramgentInfo;
+import com.droibit.app.fragment.dialog.DialogFragmentInfo;
 import com.droibit.app.fragment.dialog.OkCancelDialogFragment;
 import com.droibit.content.IntentHepler;
 import com.droibit.evendroid2.MainActivity;
@@ -26,7 +26,6 @@ import static com.droibit.evendroid2.StartupActivity.KEY_FINISHED_START_UP;
  * 初回起動時にアカウントを設定するためのフラグメント。
  *
  * @author kumagai
- * @since 2014/09/11.
  */
 public class StartupFragment extends Fragment
         implements View.OnClickListener, OkCancelDialogFragment.OnDialogAskListener {
@@ -79,15 +78,15 @@ public class StartupFragment extends Fragment
      * @param view
      */
     public void onClickOk(View view) {
-        final DialogFramgentInfo info;
+        final DialogFragmentInfo info;
         final boolean disableCancel;
         // アカウントが入力されている場合
         if (!TextUtils.isEmpty(mTextAccountName.getText())) {
-            info = new DialogFramgentInfo(DIALOG_KEY_ENTER_OK, R.string.startup_dialog_title_account,
+            info = new DialogFragmentInfo(DIALOG_KEY_ENTER_OK, R.string.startup_dialog_title_account,
                     R.string.startup_dialog_content_guide_account);
             disableCancel = true;
         } else {
-            info = new DialogFramgentInfo(DIALOG_KEY_ENTER_OK, R.string.startup_dialog_title_account,
+            info = new DialogFragmentInfo(DIALOG_KEY_ENTER_OK, R.string.startup_dialog_title_account,
                     R.string.startup_dialog_content_warning_account);
             disableCancel = false;
         }
@@ -100,7 +99,7 @@ public class StartupFragment extends Fragment
      * @param view
      */
     public void onLaunchBrowser(View view) {
-        final DialogFramgentInfo info = new DialogFramgentInfo(DIALOG_KEY_CREATE_ACCOUNT,
+        final DialogFragmentInfo info = new DialogFragmentInfo(DIALOG_KEY_CREATE_ACCOUNT,
                 R.string.startup_dialog_title_create_account,
                 R.string.startup_dialog_content_create_account);
         OkCancelDialogFragment.newInstance(info, false).show(this);
