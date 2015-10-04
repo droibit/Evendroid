@@ -1,4 +1,4 @@
-package com.droibit.evendroid2.contoller;
+package com.droibit.evendroid2.provider;
 
 import android.content.Context;
 import android.content.SearchRecentSuggestionsProvider;

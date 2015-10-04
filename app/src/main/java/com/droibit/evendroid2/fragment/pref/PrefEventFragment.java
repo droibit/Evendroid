@@ -14,7 +14,7 @@ import android.text.TextUtils;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.SettingsActivity;
-import com.droibit.evendroid2.contoller.RecentSuggestionsProvider;
+import com.droibit.evendroid2.provider.RecentSuggestionsProvider;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.preference.AskDialogPreference;
 import com.droibit.preference.OnDialogPreferenceClickListener;
@@ -26,7 +26,7 @@ import org.jdeferred.FailCallback;
 import org.jdeferred.android.AndroidDeferredManager;
 import org.jdeferred.android.DeferredAsyncTask;
 
-import static com.droibit.evendroid2.contoller.RecentSuggestionsProvider.SEARCH_URI;
+import static com.droibit.evendroid2.provider.RecentSuggestionsProvider.SEARCH_URI;
 
 /**
  * イベント支援サイト毎の設定するフラグメント

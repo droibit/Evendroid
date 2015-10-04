@@ -12,14 +12,14 @@ import android.widget.TextView;
 
 import com.droibit.app.fragment.LoadableFragment;
 import com.droibit.evendroid2.R;
-import com.droibit.evendroid2.contoller.ListableEventViewAdapter;
+import com.droibit.evendroid2.view.adapter.ListableEventViewAdapter;
 import com.droibit.evendroid2.model.IListableEvent;
 import com.droibit.evendroid2.view.OnEventItemClickListener;
 import com.droibit.eventservice.EventServiceClient;
 import com.droibit.widget.ToastManager;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
-import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
+import static com.droibit.evendroid2.view.adapter.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
 import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 
 /**

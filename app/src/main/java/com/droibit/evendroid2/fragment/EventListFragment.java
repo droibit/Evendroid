@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.droibit.evendroid2.MainActivity.KEY_NAVIGATION_POSITION;
-import static com.droibit.evendroid2.contoller.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
+import static com.droibit.evendroid2.view.adapter.ListableEventViewAdapter.KEY_SHOW_AVAILABLE_ICON;
 import static com.droibit.evendroid2.fragment.NavigationDrawerFragment.Navigations;
 
 /**

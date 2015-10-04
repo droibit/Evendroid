@@ -16,7 +16,7 @@ import com.droibit.app.fragment.dialog.DialogFramgentInfo;
 import com.droibit.app.fragment.dialog.OkCancelDialogFragment;
 import com.droibit.evendroid2.MainActivity;
 import com.droibit.evendroid2.R;
-import com.droibit.evendroid2.contoller.BookmarkableViewAdapter;
+import com.droibit.evendroid2.view.adapter.BookmarkableViewAdapter;
 import com.droibit.evendroid2.model.BookmarkableEvent;
 import com.droibit.evendroid2.model.DatabaseManager;
 import com.droibit.evendroid2.model.IListableEvent;

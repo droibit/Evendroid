@@ -21,7 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.droibit.evendroid2.R;
-import com.droibit.evendroid2.contoller.NavigationViewAdapter;
+import com.droibit.evendroid2.view.adapter.NavigationViewAdapter;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.

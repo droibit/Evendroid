@@ -1,4 +1,4 @@
-package com.droibit.evendroid2.fragment.util;
+package com.droibit.evendroid2.fragment.nav;
 
 import android.app.Fragment;
 

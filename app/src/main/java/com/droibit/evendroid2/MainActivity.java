@@ -1,12 +1,10 @@
 package com.droibit.evendroid2;
 
-import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.droibit.evendroid2.fragment.LoadableListFragment;
-import com.droibit.evendroid2.fragment.util.NavContentFragmentFactory;
+import com.droibit.evendroid2.fragment.nav.NavContentFragmentFactory;
 import com.droibit.evendroid2.fragment.NavigationDrawerFragment;
 import com.droibit.utils.EnvironmentInfo;
 

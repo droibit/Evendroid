@@ -25,7 +25,7 @@
     <!-- gson -->
     <nortices>
         <file>
-            guava.jar
+            Gson
         </file>
         <license>
             Copyright (c) 2009 Google Inc.

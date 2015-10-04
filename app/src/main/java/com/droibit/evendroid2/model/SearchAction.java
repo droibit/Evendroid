@@ -21,7 +21,7 @@ import android.widget.SearchView;
 
 import com.droibit.evendroid2.R;
 import com.droibit.evendroid2.SettingsActivity;
-import com.droibit.evendroid2.contoller.RecentSuggestionsProvider;
+import com.droibit.evendroid2.provider.RecentSuggestionsProvider;
 import com.droibit.eventservice.IEventServiceClient;
 import com.droibit.eventservice.events.EventServices;
 import com.droibit.eventservice.events.atnd.EventResponse;

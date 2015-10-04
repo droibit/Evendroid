@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.droibit.evendroid2" >
 
-    <uses-sdk
-        android:targetSdkVersion="21"
-        android:minSdkVersion="16" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -28,9 +24,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 
@@ -39,23 +33,27 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
+            android:name=".StartupActivity"
+            android:label="@string/title_activity_startup"
+            android:theme="@style/NoActionBarTheme"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:exported="false" >
         </activity>
         <activity
             android:name=".DetailActivity"
-            android:label="@string/title_activity_detail" />
+            android:label="@string/title_activity_detail"
+            android:exported="false"/>
 
         <provider
-            android:name=".contoller.RecentSuggestionsProvider"
-            android:authorities="com.droibit.evendroid2.contoller.RecentSuggestionsProvider" >
+            android:name=".provider.RecentSuggestionsProvider"
+            android:authorities="com.droibit.evendroid2.provider.RecentSuggestionsProvider"
+            android:exported="false">
         </provider>
 
-        <activity
-            android:name=".StartupActivity"
-            android:label="@string/title_activity_startup"
-            android:theme="@style/NoActionBarTheme">
-        </activity>
     </application>
 
 </manifest>

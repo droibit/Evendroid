@@ -1,4 +1,4 @@
-package com.droibit.evendroid2.contoller;
+package com.droibit.evendroid2.view.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

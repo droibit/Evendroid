@@ -13,7 +13,7 @@ import android.view.View;
 import com.android.volley.VolleyError;
 import com.droibit.app.fragment.LoadableFragment;
 import com.droibit.evendroid2.R;
-import com.droibit.evendroid2.contoller.DetailedContainerViewAdapter;
+import com.droibit.evendroid2.view.adapter.DetailedContainerViewAdapter;
 import com.droibit.evendroid2.model.DetailMenuAction;
 import com.droibit.evendroid2.model.DetailedEvent;
 import com.droibit.evendroid2.model.DetailedGroupBuilder;
