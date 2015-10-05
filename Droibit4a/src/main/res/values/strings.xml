@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lib_name">Droibit4a</string>
+
+    <!-- New version checker -->
+    <string name="new_version_title_format">%1$s %2$s</string>
+
+    <!-- Dialog -->
+    <string name="dialog_title_changelog">Change log</string>
+    <string name="dialog_title_whats_new">What\'s new</string>
+    <string name="dialog_title_open_source_license">Open source license</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="close">Close</string>
+
+</resources>

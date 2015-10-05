@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Misc -->
+    <dimen name="dialog_side_margin">15dp</dimen>
+    <dimen name="quick_context_margin_right">5dp</dimen>
+    <dimen name="list_min_icon_size">24dp</dimen>
+
+
+    <dimen name="material_textsize_xsmall">12sp</dimen>
+    <dimen name="material_textsize_small">14sp</dimen>
+    <dimen name="material_textsize_medium">16sp</dimen>
+    <dimen name="material_textsize_large">20sp</dimen>
+    <dimen name="material_textsize_xlarge">34sp</dimen>
+
+    <dimen name="material_side_edge">16dp</dimen>
+
+    <dimen name="material_list_header_height">48dp</dimen>
+    <dimen name="material_list_item_height">72dp</dimen>
+    <dimen name="material_list_item_space_height">8dp</dimen>
+
+</resources>

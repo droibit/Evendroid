@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- NumberPicker Dialog Preference -->
+    <declare-styleable name="NumberPickerDialogPreferenceAttr">
+        <attr name="android:max" />
+        <attr name="min" format="integer" />
+    </declare-styleable>
+
+    <!-- ChangeLog Dialog Preference -->
+    <declare-styleable name="ChangeLogDialogPreferenceAttr">
+    <attr name="changelog" format="integer" />
+    </declare-styleable>
+
+</resources>
